@@ -56,6 +56,14 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.layer.cornerRadius = 30
+        return tableView
+    }()
+    
     let words = [
         Word(name: "antelope chipmunk", definition: "small ground squirrel of western United States", partOfSpeech: "noun"),
         Word(name: "auricular artery", definition: "artery that supplies blood to the ear", partOfSpeech: "noun"),
@@ -89,6 +97,7 @@ class HomeViewController: UIViewController {
         blueView.addSubview(partsOfSpeechLabel)
         blueView.addSubview(wordDefinitionLabel)
         blueView.addSubview(refreshButton)
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -98,7 +107,7 @@ class HomeViewController: UIViewController {
             blueView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
             blueView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             blueView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            blueView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            blueView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
             
             wordTitleLabel.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 20),
             wordTitleLabel.leadingAnchor.constraint(equalTo: blueView.leadingAnchor, constant: 20),
@@ -114,7 +123,12 @@ class HomeViewController: UIViewController {
             
             refreshButton.trailingAnchor.constraint(equalTo: blueView.trailingAnchor, constant: -10),
             refreshButton.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: -10),
-            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
+            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor),
+            
+            tableView.topAnchor.constraint(equalTo: blueView.bottomAnchor, constant: 35),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -125,5 +139,25 @@ class HomeViewController: UIViewController {
         wordTitleLabel.text = randomWord?.name
         partsOfSpeechLabel.text = randomWord?.partOfSpeech
         wordDefinitionLabel.text = randomWord?.definition
+    }
+}
+
+// MARK: - UITableViewDataSource Methods
+
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return words.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = words[indexPath.row].name
+        content.secondaryText = words[indexPath.row].definition
+        cell.contentConfiguration = content
+        
+        return cell
     }
 }
