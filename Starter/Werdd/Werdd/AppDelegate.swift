@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Werdd
 //
-//  Created by Han Kim on 2/24/22.
+//  Created by Han Kim on 2/21/22.
 //
 
 import UIKit
