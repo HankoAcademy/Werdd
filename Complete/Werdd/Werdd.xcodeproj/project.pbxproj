@@ -19,6 +19,7 @@
 		AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */; };
 		AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */; };
 		AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECFA6B27B8C43A0018E146 /* Word.swift */; };
+		F3B9B13927E8236500FE7DE1 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViewWithColor.swift; sourceTree = "<group>"; };
 		AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		AEECFA6B27B8C43A0018E146 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				AE535C7127B20F6600B307A2 /* Assets.xcassets */,
 				AE535C7627B20F6600B307A2 /* Info.plist */,
 				AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */,
+				F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
 				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,
 				AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */,
+				F3B9B13927E8236500FE7DE1 /* WordTableViewCell.swift in Sources */,
 				AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */,
 				AE535C6B27B20F6400B307A2 /* SceneDelegate.swift in Sources */,
 			);
