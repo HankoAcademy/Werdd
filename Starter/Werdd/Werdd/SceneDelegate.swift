@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Werdd
 //
-//  Created by Han Kim on 2/21/22.
+//  Created by Han Kim on 2/7/22.
 //
 
 import UIKit

@@ -2,13 +2,13 @@
 //  ViewController.swift
 //  Werdd
 //
-//  Created by Han Kim on 2/21/22.
+//  Created by Han Kim on 2/7/22.
 //
 
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     // MARK: - Properties
     
     let appTitleLabel: UILabel = {
@@ -19,18 +19,15 @@ class HomeViewController: UIViewController {
         return label
     }()
     
-    let blueView: UIView = {
-        let view = UIView()
+    let blueView: RoundedViewWithColor = {
+        let view = RoundedViewWithColor(color: UIColor(named: "WerddBlue"))
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "WerddBlue")
-        view.layer.cornerRadius = 20
         return view
     }()
     
     let wordTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Programming"
         label.font = UIFont(name: "Rubik-Bold", size: 24)
         return label
     }()
@@ -38,7 +35,6 @@ class HomeViewController: UIViewController {
     let partsOfSpeechLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "noun"
         label.font = UIFont(name: "Helvetica-Oblique", size: 14)
         return label
     }()
@@ -46,12 +42,40 @@ class HomeViewController: UIViewController {
     let wordDefinitionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "creating a sequence of instructions to enable the computer to do something"
         label.font = UIFont(name: "Rubik-Light", size: 12)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
     }()
+    
+    lazy var refreshButton: RefreshButton = {
+        let button = RefreshButton { [weak self] in
+            self?.refreshRandomWordLabels()
+        }
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.layer.cornerRadius = 30
+        return tableView
+    }()
+    
+    let words = [
+        Word(name: "antelope chipmunk", definition: "small ground squirrel of western United States", partOfSpeech: "noun"),
+        Word(name: "auricular artery", definition: "artery that supplies blood to the ear", partOfSpeech: "noun"),
+        Word(name: "electric circuit", definition: "an electrical device that provides a path for electrical current to flow", partOfSpeech: "noun"),
+        Word(name: "punic", definition: "of or relating to or characteristic of ancient Carthage or its people or their language", partOfSpeech: "adjective"),
+        Word(name: "glib", definition: "artfully persuasive in speech", partOfSpeech: "adjective"),
+        Word(name: "appetite", definition: "a feeling of craving something", partOfSpeech: "noun"),
+        Word(name: "authoritatively", definition: "in an authoritative and magisterial manner", partOfSpeech: "adverb"),
+        Word(name: "golf links", definition: "a golf course that is built on sandy ground near a shore", partOfSpeech: "noun"),
+        Word(name: "unsay", definition: "take back what one has said", partOfSpeech: "verb"),
+        Word(name: "unbarreled", definition: "not in a barrel", partOfSpeech: "adjective")
+    ]
     
     // MARK: - Lifecycle
     
@@ -61,17 +85,19 @@ class HomeViewController: UIViewController {
         view.backgroundColor = UIColor(named: "Taupe")
         
         addSubviews()
+        refreshRandomWordLabels()
     }
-
+    
     // MARK: - UI Setup
     
     func addSubviews() {
-        
         view.addSubview(appTitleLabel)
         view.addSubview(blueView)
         blueView.addSubview(wordTitleLabel)
         blueView.addSubview(partsOfSpeechLabel)
         blueView.addSubview(wordDefinitionLabel)
+        blueView.addSubview(refreshButton)
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -81,7 +107,7 @@ class HomeViewController: UIViewController {
             blueView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
             blueView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             blueView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            blueView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            blueView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
             
             wordTitleLabel.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 20),
             wordTitleLabel.leadingAnchor.constraint(equalTo: blueView.leadingAnchor, constant: 20),
@@ -93,8 +119,45 @@ class HomeViewController: UIViewController {
             
             wordDefinitionLabel.topAnchor.constraint(equalTo: partsOfSpeechLabel.bottomAnchor, constant: 20),
             wordDefinitionLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.leadingAnchor),
-            wordDefinitionLabel.trailingAnchor.constraint(lessThanOrEqualTo: blueView.trailingAnchor, constant: -20)
+            wordDefinitionLabel.trailingAnchor.constraint(lessThanOrEqualTo: blueView.trailingAnchor, constant: -20),
+            
+            refreshButton.trailingAnchor.constraint(equalTo: blueView.trailingAnchor, constant: -10),
+            refreshButton.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: -10),
+            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor),
+            
+            tableView.topAnchor.constraint(equalTo: blueView.bottomAnchor, constant: 35),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    // MARK: - Actions
+    
+    func refreshRandomWordLabels() {
+        let randomWord = words.randomElement()
+        wordTitleLabel.text = randomWord?.name
+        partsOfSpeechLabel.text = randomWord?.partOfSpeech
+        wordDefinitionLabel.text = randomWord?.definition
     }
 }
 
+// MARK: - UITableViewDataSource Methods
+
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return words.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = words[indexPath.row].name
+        content.secondaryText = words[indexPath.row].definition
+        cell.contentConfiguration = content
+        
+        return cell
+    }
+}

@@ -7,33 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE5ABCC427C46B740074E50C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCC327C46B740074E50C /* AppDelegate.swift */; };
-		AE5ABCC627C46B740074E50C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCC527C46B740074E50C /* SceneDelegate.swift */; };
-		AE5ABCC827C46B740074E50C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCC727C46B740074E50C /* HomeViewController.swift */; };
-		AE5ABCCD27C46B770074E50C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCCC27C46B770074E50C /* Assets.xcassets */; };
-		AE5ABCD027C46B770074E50C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCCE27C46B770074E50C /* LaunchScreen.storyboard */; };
-		AE5ABCDB27C46C710074E50C /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCD727C46C710074E50C /* Rubik-Bold.ttf */; };
-		AE5ABCDD27C46C710074E50C /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCD927C46C710074E50C /* Rubik-Regular.ttf */; };
-		AE5ABCDE27C46C710074E50C /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCDA27C46C710074E50C /* Rubik-SemiBold.ttf */; };
-		AE5ABCDF27C46C780074E50C /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCD827C46C710074E50C /* Rubik-Light.ttf */; };
+		AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE535C6827B20F6400B307A2 /* AppDelegate.swift */; };
+		AE535C6B27B20F6400B307A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE535C6A27B20F6400B307A2 /* SceneDelegate.swift */; };
+		AE535C6D27B20F6400B307A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE535C6C27B20F6400B307A2 /* HomeViewController.swift */; };
+		AE535C7227B20F6600B307A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE535C7127B20F6600B307A2 /* Assets.xcassets */; };
+		AE535C7527B20F6600B307A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */; };
+		AE5ABCE627C4781B0074E50C /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCE227C4781B0074E50C /* Rubik-SemiBold.ttf */; };
+		AE5ABCE727C4781C0074E50C /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCE327C4781B0074E50C /* Rubik-Bold.ttf */; };
+		AE5ABCE827C4781C0074E50C /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCE427C4781B0074E50C /* Rubik-Light.ttf */; };
+		AE5ABCE927C4781C0074E50C /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCE527C4781B0074E50C /* Rubik-Regular.ttf */; };
+		AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */; };
+		AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */; };
+		AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECFA6B27B8C43A0018E146 /* Word.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AE5ABCC027C46B740074E50C /* Werdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Werdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE5ABCC327C46B740074E50C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE5ABCC527C46B740074E50C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE5ABCC727C46B740074E50C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		AE5ABCCC27C46B770074E50C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE5ABCCF27C46B770074E50C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AE5ABCD127C46B770074E50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE5ABCD727C46C710074E50C /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
-		AE5ABCD827C46C710074E50C /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
-		AE5ABCD927C46C710074E50C /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
-		AE5ABCDA27C46C710074E50C /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		AE535C6527B20F6400B307A2 /* Werdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Werdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE535C6827B20F6400B307A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE535C6A27B20F6400B307A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AE535C6C27B20F6400B307A2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AE535C7127B20F6600B307A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE535C7427B20F6600B307A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE535C7627B20F6600B307A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE5ABCE227C4781B0074E50C /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		AE5ABCE327C4781B0074E50C /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		AE5ABCE427C4781B0074E50C /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		AE5ABCE527C4781B0074E50C /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViewWithColor.swift; sourceTree = "<group>"; };
+		AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
+		AEECFA6B27B8C43A0018E146 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AE5ABCBD27C46B740074E50C /* Frameworks */ = {
+		AE535C6227B20F6400B307A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,43 +49,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AE5ABCB727C46B740074E50C = {
+		AE535C5C27B20F6400B307A2 = {
 			isa = PBXGroup;
 			children = (
-				AE5ABCC227C46B740074E50C /* Werdd */,
-				AE5ABCC127C46B740074E50C /* Products */,
+				AE535C6727B20F6400B307A2 /* Werdd */,
+				AE535C6627B20F6400B307A2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AE5ABCC127C46B740074E50C /* Products */ = {
+		AE535C6627B20F6400B307A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE5ABCC027C46B740074E50C /* Werdd.app */,
+				AE535C6527B20F6400B307A2 /* Werdd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AE5ABCC227C46B740074E50C /* Werdd */ = {
+		AE535C6727B20F6400B307A2 /* Werdd */ = {
 			isa = PBXGroup;
 			children = (
-				AE5ABCE027C46C7D0074E50C /* Rubik */,
-				AE5ABCC327C46B740074E50C /* AppDelegate.swift */,
-				AE5ABCC527C46B740074E50C /* SceneDelegate.swift */,
-				AE5ABCC727C46B740074E50C /* HomeViewController.swift */,
-				AE5ABCCC27C46B770074E50C /* Assets.xcassets */,
-				AE5ABCCE27C46B770074E50C /* LaunchScreen.storyboard */,
-				AE5ABCD127C46B770074E50C /* Info.plist */,
+				AE5ABCE127C478090074E50C /* Rubik */,
+				AE535C6C27B20F6400B307A2 /* HomeViewController.swift */,
+				AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */,
+				AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */,
+				AEECFA6B27B8C43A0018E146 /* Word.swift */,
+				AE535C6827B20F6400B307A2 /* AppDelegate.swift */,
+				AE535C6A27B20F6400B307A2 /* SceneDelegate.swift */,
+				AE535C7127B20F6600B307A2 /* Assets.xcassets */,
+				AE535C7627B20F6600B307A2 /* Info.plist */,
+				AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
 		};
-		AE5ABCE027C46C7D0074E50C /* Rubik */ = {
+		AE5ABCE127C478090074E50C /* Rubik */ = {
 			isa = PBXGroup;
 			children = (
-				AE5ABCD727C46C710074E50C /* Rubik-Bold.ttf */,
-				AE5ABCD827C46C710074E50C /* Rubik-Light.ttf */,
-				AE5ABCD927C46C710074E50C /* Rubik-Regular.ttf */,
-				AE5ABCDA27C46C710074E50C /* Rubik-SemiBold.ttf */,
+				AE5ABCE327C4781B0074E50C /* Rubik-Bold.ttf */,
+				AE5ABCE427C4781B0074E50C /* Rubik-Light.ttf */,
+				AE5ABCE527C4781B0074E50C /* Rubik-Regular.ttf */,
+				AE5ABCE227C4781B0074E50C /* Rubik-SemiBold.ttf */,
 			);
 			path = Rubik;
 			sourceTree = "<group>";
@@ -87,39 +96,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AE5ABCBF27C46B740074E50C /* Werdd */ = {
+		AE535C6427B20F6400B307A2 /* Werdd */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE5ABCD427C46B770074E50C /* Build configuration list for PBXNativeTarget "Werdd" */;
+			buildConfigurationList = AE535C7927B20F6600B307A2 /* Build configuration list for PBXNativeTarget "Werdd" */;
 			buildPhases = (
-				AE5ABCBC27C46B740074E50C /* Sources */,
-				AE5ABCBD27C46B740074E50C /* Frameworks */,
-				AE5ABCBE27C46B740074E50C /* Resources */,
+				AE535C6127B20F6400B307A2 /* Sources */,
+				AE535C6227B20F6400B307A2 /* Frameworks */,
+				AE535C6327B20F6400B307A2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Werdd;
-			productName = Werdd;
-			productReference = AE5ABCC027C46B740074E50C /* Werdd.app */;
+			productName = Werdd.;
+			productReference = AE535C6527B20F6400B307A2 /* Werdd.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AE5ABCB827C46B740074E50C /* Project object */ = {
+		AE535C5D27B20F6400B307A2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					AE5ABCBF27C46B740074E50C = {
+					AE535C6427B20F6400B307A2 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
-			buildConfigurationList = AE5ABCBB27C46B740074E50C /* Build configuration list for PBXProject "Werdd" */;
+			buildConfigurationList = AE535C6027B20F6400B307A2 /* Build configuration list for PBXProject "Werdd" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,50 +136,53 @@
 				en,
 				Base,
 			);
-			mainGroup = AE5ABCB727C46B740074E50C;
-			productRefGroup = AE5ABCC127C46B740074E50C /* Products */;
+			mainGroup = AE535C5C27B20F6400B307A2;
+			productRefGroup = AE535C6627B20F6400B307A2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE5ABCBF27C46B740074E50C /* Werdd */,
+				AE535C6427B20F6400B307A2 /* Werdd */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AE5ABCBE27C46B740074E50C /* Resources */ = {
+		AE535C6327B20F6400B307A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5ABCD027C46B770074E50C /* LaunchScreen.storyboard in Resources */,
-				AE5ABCDF27C46C780074E50C /* Rubik-Light.ttf in Resources */,
-				AE5ABCDB27C46C710074E50C /* Rubik-Bold.ttf in Resources */,
-				AE5ABCDE27C46C710074E50C /* Rubik-SemiBold.ttf in Resources */,
-				AE5ABCDD27C46C710074E50C /* Rubik-Regular.ttf in Resources */,
-				AE5ABCCD27C46B770074E50C /* Assets.xcassets in Resources */,
+				AE5ABCE627C4781B0074E50C /* Rubik-SemiBold.ttf in Resources */,
+				AE5ABCE927C4781C0074E50C /* Rubik-Regular.ttf in Resources */,
+				AE5ABCE727C4781C0074E50C /* Rubik-Bold.ttf in Resources */,
+				AE5ABCE827C4781C0074E50C /* Rubik-Light.ttf in Resources */,
+				AE535C7527B20F6600B307A2 /* LaunchScreen.storyboard in Resources */,
+				AE535C7227B20F6600B307A2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AE5ABCBC27C46B740074E50C /* Sources */ = {
+		AE535C6127B20F6400B307A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5ABCC827C46B740074E50C /* HomeViewController.swift in Sources */,
-				AE5ABCC427C46B740074E50C /* AppDelegate.swift in Sources */,
-				AE5ABCC627C46B740074E50C /* SceneDelegate.swift in Sources */,
+				AE535C6D27B20F6400B307A2 /* HomeViewController.swift in Sources */,
+				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
+				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,
+				AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */,
+				AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */,
+				AE535C6B27B20F6400B307A2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AE5ABCCE27C46B770074E50C /* LaunchScreen.storyboard */ = {
+		AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AE5ABCCF27C46B770074E50C /* Base */,
+				AE535C7427B20F6600B307A2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -178,7 +190,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AE5ABCD227C46B770074E50C /* Debug */ = {
+		AE535C7727B20F6600B307A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +251,7 @@
 			};
 			name = Debug;
 		};
-		AE5ABCD327C46B770074E50C /* Release */ = {
+		AE535C7827B20F6600B307A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -294,7 +306,7 @@
 			};
 			name = Release;
 		};
-		AE5ABCD527C46B770074E50C /* Debug */ = {
+		AE535C7A27B20F6600B307A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -313,7 +325,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanko.Werdd;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hanko.Werdd-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -321,7 +333,7 @@
 			};
 			name = Debug;
 		};
-		AE5ABCD627C46B770074E50C /* Release */ = {
+		AE535C7B27B20F6600B307A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -340,7 +352,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanko.Werdd;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hanko.Werdd-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -351,25 +363,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AE5ABCBB27C46B740074E50C /* Build configuration list for PBXProject "Werdd" */ = {
+		AE535C6027B20F6400B307A2 /* Build configuration list for PBXProject "Werdd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE5ABCD227C46B770074E50C /* Debug */,
-				AE5ABCD327C46B770074E50C /* Release */,
+				AE535C7727B20F6600B307A2 /* Debug */,
+				AE535C7827B20F6600B307A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE5ABCD427C46B770074E50C /* Build configuration list for PBXNativeTarget "Werdd" */ = {
+		AE535C7927B20F6600B307A2 /* Build configuration list for PBXNativeTarget "Werdd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE5ABCD527C46B770074E50C /* Debug */,
-				AE5ABCD627C46B770074E50C /* Release */,
+				AE535C7A27B20F6600B307A2 /* Debug */,
+				AE535C7B27B20F6600B307A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AE5ABCB827C46B740074E50C /* Project object */;
+	rootObject = AE535C5D27B20F6400B307A2 /* Project object */;
 }
