@@ -60,7 +60,9 @@ class HomeViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
+        tableView.register(WordTableViewCell.self, forCellReuseIdentifier: WordTableViewCell.identifier)
         tableView.layer.cornerRadius = 30
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -151,12 +153,12 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: WordTableViewCell.identifier, for: indexPath) as? WordTableViewCell else {
+            print("Expected WordTableViewCell but found nil")
+            return UITableViewCell()
+        }
         
-        var content = cell.defaultContentConfiguration()
-        content.text = words[indexPath.row].name
-        content.secondaryText = words[indexPath.row].definition
-        cell.contentConfiguration = content
+        cell.updateViews(words[indexPath.row])
         
         return cell
     }
