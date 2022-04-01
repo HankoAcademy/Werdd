@@ -19,6 +19,8 @@
 		AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */; };
 		AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */; };
 		AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECFA6B27B8C43A0018E146 /* Word.swift */; };
+		F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */; };
+		F3B9B13927E8236500FE7DE1 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViewWithColor.swift; sourceTree = "<group>"; };
 		AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		AEECFA6B27B8C43A0018E146 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			children = (
 				AE5ABCE127C478090074E50C /* Rubik */,
 				AE535C6C27B20F6400B307A2 /* HomeViewController.swift */,
+				F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */,
 				AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */,
 				AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */,
 				AEECFA6B27B8C43A0018E146 /* Word.swift */,
@@ -87,6 +92,7 @@
 			children = (
 				AE5ABCE327C4781B0074E50C /* Rubik-Bold.ttf */,
 				AE5ABCE427C4781B0074E50C /* Rubik-Light.ttf */,
+				F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */,
 				AE5ABCE527C4781B0074E50C /* Rubik-Regular.ttf */,
 				AE5ABCE227C4781B0074E50C /* Rubik-SemiBold.ttf */,
 			);
@@ -153,6 +159,7 @@
 			files = (
 				AE5ABCE627C4781B0074E50C /* Rubik-SemiBold.ttf in Resources */,
 				AE5ABCE927C4781C0074E50C /* Rubik-Regular.ttf in Resources */,
+				F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */,
 				AE5ABCE727C4781C0074E50C /* Rubik-Bold.ttf in Resources */,
 				AE5ABCE827C4781C0074E50C /* Rubik-Light.ttf in Resources */,
 				AE535C7527B20F6600B307A2 /* LaunchScreen.storyboard in Resources */,
@@ -171,6 +178,7 @@
 				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
 				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,
 				AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */,
+				F3B9B13927E8236500FE7DE1 /* WordTableViewCell.swift in Sources */,
 				AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */,
 				AE535C6B27B20F6400B307A2 /* SceneDelegate.swift in Sources */,
 			);
