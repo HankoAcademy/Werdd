@@ -48,15 +48,18 @@ class RoundedViewWithColor: UIView {
         self.color = color
         
         super.init(frame: frame)
-        
-        backgroundColor = color
-        layer.cornerRadius = 20
-        
-        setUpSubviews()
+
+        setUpUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setUpUI() {
+        backgroundColor = color
+        layer.cornerRadius = 20
+        setUpSubviews()
     }
     
     func setUpSubviews() {
