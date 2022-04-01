@@ -19,41 +19,12 @@ class HomeViewController: UIViewController {
         return label
     }()
     
-    let blueView: RoundedViewWithColor = {
-        let view = RoundedViewWithColor(color: UIColor(named: "WerddBlue"))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    let wordTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Rubik-Bold", size: 24)
-        return label
-    }()
-    
-    let partsOfSpeechLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Helvetica-Oblique", size: 14)
-        return label
-    }()
-    
-    let wordDefinitionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Rubik-Light", size: 12)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        return label
-    }()
-    
-    lazy var refreshButton: RefreshButton = {
-        let button = RefreshButton { [weak self] in
+    lazy var randomWordView: RoundedViewWithColor = {
+        let view = RoundedViewWithColor(color: UIColor(named: "WerddBlue")) { [weak self] in
             self?.refreshRandomWordLabels()
         }
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     lazy var tableView: UITableView = {
@@ -92,11 +63,7 @@ class HomeViewController: UIViewController {
     
     func addSubviews() {
         view.addSubview(appTitleLabel)
-        view.addSubview(blueView)
-        blueView.addSubview(wordTitleLabel)
-        blueView.addSubview(partsOfSpeechLabel)
-        blueView.addSubview(wordDefinitionLabel)
-        blueView.addSubview(refreshButton)
+        view.addSubview(randomWordView)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -104,28 +71,12 @@ class HomeViewController: UIViewController {
             appTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
             
-            blueView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
-            blueView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            blueView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            blueView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
-            
-            wordTitleLabel.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 20),
-            wordTitleLabel.leadingAnchor.constraint(equalTo: blueView.leadingAnchor, constant: 20),
-            wordTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: partsOfSpeechLabel.leadingAnchor),
-            
-            partsOfSpeechLabel.topAnchor.constraint(equalTo: wordTitleLabel.topAnchor, constant: 8),
-            partsOfSpeechLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.trailingAnchor, constant: 5),
-            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: blueView.trailingAnchor, constant: -20),
-            
-            wordDefinitionLabel.topAnchor.constraint(equalTo: partsOfSpeechLabel.bottomAnchor, constant: 20),
-            wordDefinitionLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.leadingAnchor),
-            wordDefinitionLabel.trailingAnchor.constraint(lessThanOrEqualTo: blueView.trailingAnchor, constant: -20),
-            
-            refreshButton.trailingAnchor.constraint(equalTo: blueView.trailingAnchor, constant: -10),
-            refreshButton.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: -10),
-            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: blueView.bottomAnchor, constant: 35),
+            randomWordView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
+            randomWordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            randomWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
+
+            tableView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -136,9 +87,9 @@ class HomeViewController: UIViewController {
     
     func refreshRandomWordLabels() {
         let randomWord = words.randomElement()
-        wordTitleLabel.text = randomWord?.name
-        partsOfSpeechLabel.text = randomWord?.partOfSpeech
-        wordDefinitionLabel.text = randomWord?.definition
+        randomWordView.wordTitleLabel.text = randomWord?.name
+        randomWordView.partsOfSpeechLabel.text = randomWord?.partOfSpeech
+        randomWordView.wordDefinitionLabel.text = randomWord?.definition
     }
 }
 
