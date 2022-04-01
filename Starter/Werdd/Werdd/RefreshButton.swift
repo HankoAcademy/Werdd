@@ -25,9 +25,9 @@ class RefreshButton: UIButton {
     func setUpUI() {
         tintColor = .white
         
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium, scale: .medium)
-        let largeBoldDoc = UIImage(systemName: "arrow.triangle.2.circlepath.circle", withConfiguration: largeConfig)
-        setImage(largeBoldDoc, for: .normal)
+        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium, scale: .medium)
+        let image = UIImage(systemName: "arrow.triangle.2.circlepath.circle", withConfiguration: symbolConfiguration)
+        setImage(image, for: .normal)
         
         addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
