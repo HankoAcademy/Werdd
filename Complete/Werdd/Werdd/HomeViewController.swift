@@ -26,15 +26,18 @@ class HomeViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = self
-        tableView.register(WordTableViewCell.self, forCellReuseIdentifier: WordTableViewCell.identifier)
-        tableView.layer.cornerRadius = 30
-        tableView.separatorStyle = .none
-        return tableView
+    
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: view.frame.size.width/2.2, height: view.frame.size.width/3.5)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = self
+        collectionView.register(WordTableViewCell.self, forCellWithReuseIdentifier: WordTableViewCell.identifier)
+        return collectionView
     }()
     
     let words = [
@@ -66,7 +69,7 @@ class HomeViewController: UIViewController {
     func addSubviews() {
         view.addSubview(appTitleLabel)
         view.addSubview(randomWordView)
-        view.addSubview(tableView)
+        view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
             appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -78,10 +81,10 @@ class HomeViewController: UIViewController {
             randomWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
             
-            tableView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -95,22 +98,20 @@ class HomeViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDataSource Methods
+// MARK: - UICollectionViewDataSource Methods
 
-extension HomeViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return words.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: WordTableViewCell.identifier, for: indexPath) as? WordTableViewCell else {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordTableViewCell.identifier, for: indexPath) as? WordTableViewCell else {
             print("Expected WordTableViewCell but found nil")
-            return UITableViewCell()
+            return UICollectionViewCell()
         }
-        
+                    
         cell.updateViews(words[indexPath.row])
-        
         return cell
     }
 }

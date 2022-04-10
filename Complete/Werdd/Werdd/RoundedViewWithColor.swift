@@ -29,7 +29,7 @@ class RoundedViewWithColor: UIView {
     let wordDefinitionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Rubik-Light", size: 12)
+        label.font = UIFont(name: "Rubik-Light", size: 16)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
