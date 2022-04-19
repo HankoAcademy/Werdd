@@ -4,10 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Rubik-SemiBoldItalic.ttf</string>
 		<string>Rubik-Bold.ttf</string>
 		<string>Rubik-Light.ttf</string>
 		<string>Rubik-Regular.ttf</string>
 		<string>Rubik-SemiBold.ttf</string>
+		<string>Rubik-LightItalic.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

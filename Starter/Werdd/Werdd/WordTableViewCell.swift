@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WordTableViewCell: UITableViewCell {
+class WordTableViewCell: UICollectionViewCell {
 
     // MARK: - Class Properties
     
@@ -27,7 +27,7 @@ class WordTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.font = UIFont(name: "Rubik-Bold", size: 18)
         return label
     }()
     
@@ -36,8 +36,7 @@ class WordTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.numberOfLines = 4
         return label
     }()
     
@@ -45,14 +44,14 @@ class WordTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        label.font = UIFont(name: "Rubik-LightItalic", size: 12)
         return label
     }()
     
     // MARK: - Initializers
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setUpViews()
     }
@@ -64,7 +63,6 @@ class WordTableViewCell: UITableViewCell {
     // MARK: - UI Setup
     
     private func setUpViews() {
-        
         titleLabel.text = "title"
         partsOfSpeechLabel.text = "parts of speech"
         subtitleLabel.text = "subtitle"
@@ -76,23 +74,27 @@ class WordTableViewCell: UITableViewCell {
         containerView.addSubview(subtitleLabel)
                 
         contentView.addSubview(containerView)
-                
+        
+        titleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        partsOfSpeechLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 12),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
             
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 4),
+            partsOfSpeechLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
             partsOfSpeechLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -4),
-            subtitleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
+            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -12)
         ])
     }
     

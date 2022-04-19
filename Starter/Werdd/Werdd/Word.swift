@@ -11,4 +11,8 @@ struct Word {
     let name: String
     let definition: String
     let partOfSpeech: String
+    
+    let synonyms: [String]?
+    let antonyms: [String]?
+    let examples: [String]?
 }
