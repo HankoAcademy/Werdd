@@ -21,6 +21,8 @@
 		AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECFA6B27B8C43A0018E146 /* Word.swift */; };
 		F32319C0280BA3C8002926C7 /* DefinitionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */; };
 		F32319C2280BA624002926C7 /* WordsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C1280BA624002926C7 /* WordsDataSource.swift */; };
+		F32319C4280E01D9002926C7 /* WordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C3280E01D9002926C7 /* WordDetailView.swift */; };
+		F32319C6280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */; };
 		F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */; };
 		F3B9B13927E8236500FE7DE1 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		AEECFA6B27B8C43A0018E146 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionDetailsViewController.swift; sourceTree = "<group>"; };
 		F32319C1280BA624002926C7 /* WordsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDataSource.swift; sourceTree = "<group>"; };
+		F32319C3280E01D9002926C7 /* WordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailView.swift; sourceTree = "<group>"; };
+		F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +82,8 @@
 			children = (
 				AE5ABCE127C478090074E50C /* Rubik */,
 				AE535C6C27B20F6400B307A2 /* HomeViewController.swift */,
+				F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */,
+				F32319C3280E01D9002926C7 /* WordDetailView.swift */,
 				F32319C1280BA624002926C7 /* WordsDataSource.swift */,
 				F3B9B13827E8236500FE7DE1 /* WordTableViewCell.swift */,
 				AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */,
@@ -88,7 +94,6 @@
 				AE535C7127B20F6600B307A2 /* Assets.xcassets */,
 				AE535C7627B20F6600B307A2 /* Info.plist */,
 				AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */,
-				F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 				F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */,
 				AE5ABCE527C4781B0074E50C /* Rubik-Regular.ttf */,
 				AE5ABCE227C4781B0074E50C /* Rubik-SemiBold.ttf */,
+				F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */,
 			);
 			path = Rubik;
 			sourceTree = "<group>";
@@ -166,6 +172,7 @@
 				AE5ABCE627C4781B0074E50C /* Rubik-SemiBold.ttf in Resources */,
 				AE5ABCE927C4781C0074E50C /* Rubik-Regular.ttf in Resources */,
 				F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */,
+				F32319C6280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf in Resources */,
 				AE5ABCE727C4781C0074E50C /* Rubik-Bold.ttf in Resources */,
 				AE5ABCE827C4781C0074E50C /* Rubik-Light.ttf in Resources */,
 				AE535C7527B20F6600B307A2 /* LaunchScreen.storyboard in Resources */,
@@ -187,6 +194,7 @@
 				F3B9B13927E8236500FE7DE1 /* WordTableViewCell.swift in Sources */,
 				F32319C2280BA624002926C7 /* WordsDataSource.swift in Sources */,
 				AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */,
+				F32319C4280E01D9002926C7 /* WordDetailView.swift in Sources */,
 				F32319C0280BA3C8002926C7 /* DefinitionDetailsViewController.swift in Sources */,
 				AE535C6B27B20F6400B307A2 /* SceneDelegate.swift in Sources */,
 			);
