@@ -1,5 +1,5 @@
 //
-//  WordTableViewCell.swift
+//  WordCollectionViewCell.swift
 //  Werdd
 //
 //  Created by Hannie Kim on 3/20/22.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class WordTableViewCell: UICollectionViewCell {
+class WordCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Class Properties
     
-    static let identifier = WordTableViewCell.self.description()
+    static let identifier = WordCollectionViewCell.self.description()
     
     // MARK: - UI Properties
     
