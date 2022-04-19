@@ -23,6 +23,7 @@
 		F32319C2280BA624002926C7 /* WordsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C1280BA624002926C7 /* WordsDataSource.swift */; };
 		F32319C4280E01D9002926C7 /* WordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C3280E01D9002926C7 /* WordDetailView.swift */; };
 		F32319C6280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */; };
+		F32319CA280E3A7A002926C7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C9280E3A7A002926C7 /* NetworkManager.swift */; };
 		F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */; };
 		F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		F32319C1280BA624002926C7 /* WordsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDataSource.swift; sourceTree = "<group>"; };
 		F32319C3280E01D9002926C7 /* WordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailView.swift; sourceTree = "<group>"; };
 		F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		F32319C9280E3A7A002926C7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				AE535C7127B20F6600B307A2 /* Assets.xcassets */,
 				AE535C7627B20F6600B307A2 /* Info.plist */,
 				AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */,
+				F32319C9280E3A7A002926C7 /* NetworkManager.swift */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
 				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,
 				AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */,
+				F32319CA280E3A7A002926C7 /* NetworkManager.swift in Sources */,
 				F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */,
 				F32319C2280BA624002926C7 /* WordsDataSource.swift in Sources */,
 				AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */,
