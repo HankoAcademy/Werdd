@@ -41,6 +41,16 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    lazy var searchView: SearchView = {
+        let searchView = SearchView(searchDefinitionsDelegate: self)
+        searchView.translatesAutoresizingMaskIntoConstraints = false
+        searchView.layer.cornerRadius = 20
+
+        // Top right corner, Top left corner
+        searchView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        return searchView
+    }()
+    
     let words = WordDataSource().words
     
     // MARK: - Lifecycle
@@ -59,6 +69,7 @@ class HomeViewController: UIViewController {
     func addSubviews() {
         view.addSubview(appTitleLabel)
         view.addSubview(randomWordView)
+        view.addSubview(searchView)
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
@@ -71,7 +82,11 @@ class HomeViewController: UIViewController {
             randomWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
             
-            collectionView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
+            searchView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
+            searchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            collectionView.topAnchor.constraint(equalTo: searchView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -81,14 +96,22 @@ class HomeViewController: UIViewController {
     // MARK: - Actions
     
     func refreshRandomWordLabels() {
-        let randomWord = words.randomElement()
-        randomWordView.wordTitleLabel.text = randomWord?.name
-        randomWordView.partsOfSpeechLabel.text = randomWord?.partOfSpeech
-        randomWordView.wordDefinitionLabel.text = randomWord?.definition
+        NetworkManager.shared.fetchRandomWord { [weak self] result in
+            switch result {
+            case .success(let randomWord):
+                DispatchQueue.main.async {
+                    self?.randomWordView.wordTitleLabel.text = randomWord.word
+                    self?.randomWordView.partsOfSpeechLabel.text = randomWord.results?.first?.partOfSpeech
+                    self?.randomWordView.wordDefinitionLabel.text = randomWord.results?.first?.definition
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
-// MARK: - UICollectionViewDataSource Methods
+// MARK: - UICollectionViewDataSource & UICollectionViewDelegate Methods
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -111,5 +134,13 @@ extension HomeViewController: UICollectionViewDelegate {
         let selectedWord = words[indexPath.row]
         
         navigationController?.pushViewController(DefinitionDetailsViewController(wordDetail: selectedWord, selectedWord: selectedWord.name), animated: true)
+    }
+}
+
+// MARK: - SearchDefinitionDelegate Methods
+
+extension HomeViewController: SearchDefinitionsDelegate {
+    func searchDefinitions(forWord word: String?) {
+        print("search for \(word)")
     }
 }
