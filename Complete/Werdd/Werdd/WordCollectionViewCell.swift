@@ -98,9 +98,9 @@ class WordCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func updateViews(_ word: Word) {
-        titleLabel.text = word.name
-        subtitleLabel.text = word.definition
-        partsOfSpeechLabel.text = word.partOfSpeech
+    func updateViews(_ wordDetail: WordDetail?, word: String?) {
+        titleLabel.text = word
+        subtitleLabel.text = wordDetail?.definition
+        partsOfSpeechLabel.text = wordDetail?.partOfSpeech
     }
 }

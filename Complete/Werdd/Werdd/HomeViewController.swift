@@ -51,7 +51,8 @@ class HomeViewController: UIViewController {
         return searchView
     }()
     
-    let words = WordDataSource().words
+    var words: [WordDetail]?
+    var selectedWord: String?
     
     // MARK: - Lifecycle
     
@@ -73,7 +74,7 @@ class HomeViewController: UIViewController {
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             appTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
             
@@ -115,7 +116,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return words.count
+        return words?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -124,16 +125,20 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
                     
-        cell.updateViews(words[indexPath.row])
+        cell.updateViews(words?[indexPath.row], word: selectedWord)
         return cell
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedWord = words[indexPath.row]
+        guard let selectedWord = selectedWord,
+              let selectedWordDetails = words?[indexPath.row] else {
+            assertionFailure("Selected word unexpectedly found nil")
+            return
+        }
         
-        navigationController?.pushViewController(DefinitionDetailsViewController(wordDetail: selectedWord, selectedWord: selectedWord.name), animated: true)
+        navigationController?.pushViewController(DefinitionDetailsViewController(wordDetail: selectedWordDetails, selectedWord: selectedWord), animated: true)
     }
 }
 
@@ -141,6 +146,34 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: SearchDefinitionsDelegate {
     func searchDefinitions(forWord word: String?) {
-        print("search for \(word)")
+        
+        guard let word = word, !word.isEmpty else {
+            // if there is no input in the textfield, prompt the user to enter one
+            presentMissingWordAlert()
+            return
+        }
+        
+        NetworkManager.shared.fetchWordWithDetails(word) { result in
+            switch result {
+            case .success(let word):
+                DispatchQueue.main.async {
+                    let resultsThatIncludeADefinition = word.results?.filter { $0.definition != nil }
+                    self.words = resultsThatIncludeADefinition
+                    self.selectedWord = word.word
+                    self.collectionView.reloadData() // reloads the collectionView to use the updated `words` array values
+                }
+            case .failure(let error):
+                // good place to handle errors
+                print("Failed to decode RandomWord with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    // MARK: - Alerts
+    
+    private func presentMissingWordAlert() {
+        let alertController = UIAlertController(title: "", message: "Please enter a word in the text field first to retrieve definitions", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }

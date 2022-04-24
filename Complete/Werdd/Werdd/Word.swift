@@ -7,12 +7,15 @@
 
 import Foundation
 
-struct Word {
-    let name: String
-    let definition: String
-    let partOfSpeech: String
-    
+struct Word: Codable {
+    let word: String?
+    let results: [WordDetail]?
+}
+
+struct WordDetail: Codable {
+    let definition: String?
     let synonyms: [String]?
     let antonyms: [String]?
     let examples: [String]?
+    let partOfSpeech: String?
 }

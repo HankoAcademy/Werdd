@@ -36,7 +36,7 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func fetchRandomWord(completion: @escaping (Result<Word1, Error>) -> Void) {
+    func fetchRandomWord(completion: @escaping (Result<Word, Error>) -> Void) {
         guard let randomWordDataURL = URL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions") else {
             completion(.failure(APIError.missingOrInvalidData))
             return
@@ -59,7 +59,7 @@ class NetworkManager {
             }
             
             do {
-                let randomWord = try JSONDecoder().decode(Word1.self, from: data)
+                let randomWord = try JSONDecoder().decode(Word.self, from: data)
                 completion(.success(randomWord))
             }
             catch {
@@ -69,7 +69,7 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchWordWithDetails(_ word: String, completion: @escaping (Result<Word1, Error>) -> Void) {
+    func fetchWordWithDetails(_ word: String, completion: @escaping (Result<Word, Error>) -> Void) {
         guard let fetchWordDataURL = URL(string: "https://worsdapiv1.p.rapidapi.com/words/\(word)") else {
             completion(.failure(CommonError.invalidURL))
             return
@@ -91,7 +91,7 @@ class NetworkManager {
             }
             
             do {
-                let word = try JSONDecoder().decode(Word1.self, from: data)
+                let word = try JSONDecoder().decode(Word.self, from: data)
                 completion(.success(word))
             }
             catch {
@@ -100,17 +100,4 @@ class NetworkManager {
             }
         }.resume()
     }
-}
-
-struct Word1: Codable {
-    let word: String?
-    let results: [WordDetail]?
-}
-
-struct WordDetail: Codable {
-    let definition: String?
-    let synonyms: [String]?
-    let antonyms: [String]?
-    let examples: [String]?
-    let partOfSpeech: String?
 }

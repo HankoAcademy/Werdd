@@ -11,7 +11,7 @@ class DefinitionDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
-    let wordDetail: Word
+    let wordDetail: WordDetail
     let selectedWord: String
     
     // MARK: - UI Properties
@@ -76,7 +76,7 @@ class DefinitionDetailsViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(wordDetail: Word, selectedWord: String) {
+    init(wordDetail: WordDetail, selectedWord: String) {
         self.wordDetail = wordDetail
         self.selectedWord = selectedWord
         
@@ -105,7 +105,7 @@ class DefinitionDetailsViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
 
-        navigationItem.title = wordDetail.name
+        navigationItem.title = selectedWord
     }
     
     func setUpUI() {

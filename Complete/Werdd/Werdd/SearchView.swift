@@ -19,7 +19,7 @@ class SearchView: UIView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Find a word..."
-        textField.backgroundColor = .lightGray
+        textField.backgroundColor = .systemGray6
         textField.layer.cornerRadius = 15.0
         
         let iconView = UIImageView(frame:
