@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
@@ -97,6 +97,8 @@ class HomeViewController: UIViewController {
     // MARK: - Actions
     
     func refreshRandomWordLabels() {
+        addSpinner()
+        
         NetworkManager.shared.fetchRandomWord { [weak self] result in
             switch result {
             case .success(let randomWord):
@@ -104,8 +106,12 @@ class HomeViewController: UIViewController {
                     self?.randomWordView.wordTitleLabel.text = randomWord.word
                     self?.randomWordView.partsOfSpeechLabel.text = randomWord.results?.first?.partOfSpeech
                     self?.randomWordView.wordDefinitionLabel.text = randomWord.results?.first?.definition
+                    self?.removeSpinner()
                 }
             case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.removeSpinner()
+                }
                 print(error.localizedDescription)
             }
         }
@@ -153,18 +159,22 @@ extension HomeViewController: SearchDefinitionsDelegate {
             return
         }
         
-        NetworkManager.shared.fetchWordWithDetails(word) { result in
+        addSpinner()
+        
+        NetworkManager.shared.fetchWordWithDetails(word) { [weak self] result in
             switch result {
             case .success(let word):
                 DispatchQueue.main.async {
                     let resultsThatIncludeADefinition = word.results?.filter { $0.definition != nil }
-                    self.words = resultsThatIncludeADefinition
-                    self.selectedWord = word.word
-                    self.collectionView.reloadData() // reloads the collectionView to use the updated `words` array values
+                    self?.words = resultsThatIncludeADefinition
+                    self?.selectedWord = word.word
+                    self?.collectionView.reloadData() // reloads the collectionView to use the updated `words` array values
+                    self?.removeSpinner()
                 }
             case .failure(let error):
                 // good place to handle errors
                 print("Failed to decode RandomWord with error: \(error.localizedDescription)")
+                self?.removeSpinner()
             }
         }
     }

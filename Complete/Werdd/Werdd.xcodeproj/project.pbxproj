@@ -26,6 +26,8 @@
 		F32319CC280E51B8002926C7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319CB280E51B8002926C7 /* SearchView.swift */; };
 		F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */; };
 		F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */; };
+		F3BEE0A82815F12200CACBC5 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */; };
+		F3BEE0AB2815F1E700CACBC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		F32319CB280E51B8002926C7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
+		F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,19 +88,17 @@
 			children = (
 				AE5ABCE127C478090074E50C /* Rubik */,
 				AE535C6C27B20F6400B307A2 /* HomeViewController.swift */,
+				F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */,
 				F32319CB280E51B8002926C7 /* SearchView.swift */,
 				F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */,
 				F32319C3280E01D9002926C7 /* WordDetailView.swift */,
-				F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */,
 				AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */,
 				AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */,
-				F32319C9280E3A7A002926C7 /* NetworkManager.swift */,
 				AEECFA6B27B8C43A0018E146 /* Word.swift */,
-				AE535C6827B20F6400B307A2 /* AppDelegate.swift */,
-				AE535C6A27B20F6400B307A2 /* SceneDelegate.swift */,
-				AE535C7127B20F6600B307A2 /* Assets.xcassets */,
-				AE535C7627B20F6600B307A2 /* Info.plist */,
-				AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */,
+				F32319C9280E3A7A002926C7 /* NetworkManager.swift */,
+				F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */,
+				F3BEE0A92815F12A00CACBC5 /* Supporting Files */,
+				F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
@@ -112,6 +114,18 @@
 				F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */,
 			);
 			path = Rubik;
+			sourceTree = "<group>";
+		};
+		F3BEE0A92815F12A00CACBC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE535C6827B20F6400B307A2 /* AppDelegate.swift */,
+				AE535C6A27B20F6400B307A2 /* SceneDelegate.swift */,
+				AE535C7127B20F6600B307A2 /* Assets.xcassets */,
+				AE535C7627B20F6600B307A2 /* Info.plist */,
+				AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,10 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BEE0AB2815F1E700CACBC5 /* BaseViewController.swift in Sources */,
 				AE535C6D27B20F6400B307A2 /* HomeViewController.swift in Sources */,
 				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
 				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,
 				AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */,
+				F3BEE0A82815F12200CACBC5 /* SpinnerViewController.swift in Sources */,
 				F32319CC280E51B8002926C7 /* SearchView.swift in Sources */,
 				F32319CA280E3A7A002926C7 /* NetworkManager.swift in Sources */,
 				F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */,
@@ -343,7 +359,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C62Y8SVBJ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Werdd/Info.plist;
+				INFOPLIST_FILE = "Werdd/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -370,7 +386,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C62Y8SVBJ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Werdd/Info.plist;
+				INFOPLIST_FILE = "Werdd/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
