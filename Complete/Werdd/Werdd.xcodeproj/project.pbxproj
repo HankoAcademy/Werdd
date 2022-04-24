@@ -87,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				AE5ABCE127C478090074E50C /* Rubik */,
+				F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */,
+				F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */,
 				AE535C6C27B20F6400B307A2 /* HomeViewController.swift */,
 				F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */,
 				F32319CB280E51B8002926C7 /* SearchView.swift */,
@@ -96,9 +98,7 @@
 				AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */,
 				AEECFA6B27B8C43A0018E146 /* Word.swift */,
 				F32319C9280E3A7A002926C7 /* NetworkManager.swift */,
-				F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */,
 				F3BEE0A92815F12A00CACBC5 /* Supporting Files */,
-				F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
