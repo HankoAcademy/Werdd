@@ -16,6 +16,7 @@
 		AE5ABCDD27C46C710074E50C /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCD927C46C710074E50C /* Rubik-Regular.ttf */; };
 		AE5ABCDE27C46C710074E50C /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCDA27C46C710074E50C /* Rubik-SemiBold.ttf */; };
 		AE5ABCDF27C46C780074E50C /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE5ABCD827C46C710074E50C /* Rubik-Light.ttf */; };
+		F34BB8C328E9222500EA28BC /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F34BB8C228E9222500EA28BC /* Rubik-Italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AE5ABCD827C46C710074E50C /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
 		AE5ABCD927C46C710074E50C /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		AE5ABCDA27C46C710074E50C /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		F34BB8C228E9222500EA28BC /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				AE5ABCD827C46C710074E50C /* Rubik-Light.ttf */,
 				AE5ABCD927C46C710074E50C /* Rubik-Regular.ttf */,
 				AE5ABCDA27C46C710074E50C /* Rubik-SemiBold.ttf */,
+				F34BB8C228E9222500EA28BC /* Rubik-Italic.ttf */,
 			);
 			path = Rubik;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				AE5ABCDF27C46C780074E50C /* Rubik-Light.ttf in Resources */,
 				AE5ABCDB27C46C710074E50C /* Rubik-Bold.ttf in Resources */,
 				AE5ABCDE27C46C710074E50C /* Rubik-SemiBold.ttf in Resources */,
+				F34BB8C328E9222500EA28BC /* Rubik-Italic.ttf in Resources */,
 				AE5ABCDD27C46C710074E50C /* Rubik-Regular.ttf in Resources */,
 				AE5ABCCD27C46B770074E50C /* Assets.xcassets in Resources */,
 			);
