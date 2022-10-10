@@ -16,6 +16,8 @@ This repo exists as a reference for Hanko Academy students as they build their o
 * Persistence using Core Data
 * Design Patterns
 
-
 ## Spec
 Design specs available on [Figma](https://www.figma.com/file/0PAmaT9MU2bhfM8ef0zBVE/Practice-Project-Designs?node-id=1508%3A4430)
+
+## Setup
+Clone main and checkout the branches starting with v1 to view each week's completed version.
