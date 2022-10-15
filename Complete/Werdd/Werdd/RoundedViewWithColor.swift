@@ -9,6 +9,8 @@ import UIKit
 
 class RoundedViewWithColor: UIView {
     
+    // MARK: - Properties
+    
     let color: UIColor?
     var completion: (() -> Void)?
     
@@ -22,16 +24,16 @@ class RoundedViewWithColor: UIView {
     let partsOfSpeechLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Helvetica-Oblique", size: 14)
+        label.font = UIFont(name: "Rubik-Italic", size: 14)
         return label
     }()
     
     let wordDefinitionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Rubik-Light", size: 12)
-        label.numberOfLines = 0
+        label.font = UIFont(name: "Rubik-Light", size: 18)
         label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
@@ -43,11 +45,13 @@ class RoundedViewWithColor: UIView {
         return button
     }()
     
-    init(color: UIColor?, frame: CGRect = .zero, completion: (() -> Void)?) {
+    // MARK: - Initializer
+    
+    init(backgroundColor: UIColor?, completion: (() -> Void)?) {
         self.completion = completion
-        self.color = color
+        self.color = backgroundColor
         
-        super.init(frame: frame)
+        super.init(frame: .zero)
 
         setUpUI()
     }
@@ -56,6 +60,8 @@ class RoundedViewWithColor: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - UI Setup
+    
     func setUpUI() {
         backgroundColor = color
         layer.cornerRadius = 20
@@ -63,7 +69,6 @@ class RoundedViewWithColor: UIView {
     }
     
     func setUpSubviews() {
-        
         addSubview(wordTitleLabel)
         addSubview(partsOfSpeechLabel)
         addSubview(wordDefinitionLabel)
@@ -74,9 +79,9 @@ class RoundedViewWithColor: UIView {
             wordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             wordTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: partsOfSpeechLabel.leadingAnchor),
             
-            partsOfSpeechLabel.topAnchor.constraint(equalTo: wordTitleLabel.topAnchor, constant: 8),
+            partsOfSpeechLabel.bottomAnchor.constraint(equalTo: wordTitleLabel.bottomAnchor, constant: -4),
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.trailingAnchor, constant: 5),
-            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
+            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
             
             wordDefinitionLabel.topAnchor.constraint(equalTo: partsOfSpeechLabel.bottomAnchor, constant: 20),
             wordDefinitionLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.leadingAnchor),
@@ -84,7 +89,6 @@ class RoundedViewWithColor: UIView {
             
             refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
         ])
     }
 }
