@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         return label
     }()
     
-    let backgroundView: UIView = {
+    let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(named: "WerddBlue")
@@ -67,12 +67,12 @@ class HomeViewController: UIViewController {
     
     func setUpUI() {
         setUpAppTitle()
-        setUpBackgroundView()
+        setUpContainerView()
         setUpWordTitle()
         setUpPartsOfSpeech()
         setUpDefinition()
     }
-    
+
     func setUpAppTitle() {
         view.addSubview(appTitleLabel)
         
@@ -82,45 +82,44 @@ class HomeViewController: UIViewController {
             appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor)
         ])
     }
-    
-    func setUpBackgroundView() {
-        view.addSubview(backgroundView)
+
+    func setUpContainerView() {
+        view.addSubview(containerView)
         
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            backgroundView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+            containerView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
         ])
     }
     
     func setUpWordTitle() {
-        backgroundView.addSubview(wordTitleLabel)
+        containerView.addSubview(wordTitleLabel)
         
         NSLayoutConstraint.activate([
-            wordTitleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 20),
-            wordTitleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20)
+            wordTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
+            wordTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20)
         ])
     }
     
     func setUpPartsOfSpeech() {
-        backgroundView.addSubview(partsOfSpeechLabel)
+        containerView.addSubview(partsOfSpeechLabel)
         
         NSLayoutConstraint.activate([
             partsOfSpeechLabel.bottomAnchor.constraint(equalTo: wordTitleLabel.bottomAnchor, constant: -4),
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.trailingAnchor, constant: 5),
-            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: backgroundView.trailingAnchor)
+            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: containerView.trailingAnchor)
         ])
     }
     
     func setUpDefinition() {
-        backgroundView.addSubview(wordDefinitionLabel)
+        containerView.addSubview(wordDefinitionLabel)
         
         NSLayoutConstraint.activate([
             wordDefinitionLabel.topAnchor.constraint(equalTo: partsOfSpeechLabel.bottomAnchor, constant: 20),
             wordDefinitionLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.leadingAnchor),
-            wordDefinitionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20)
+            wordDefinitionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20)
         ])
     }
 }
-
