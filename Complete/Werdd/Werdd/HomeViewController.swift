@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     }()
     
     lazy var randomWordView: RoundedViewWithColor = {
-        let view = RoundedViewWithColor(backgroundColor: UIColor(named: "WerddBlue")) { [weak self] in
+        let view = RoundedViewWithColor { [weak self] in
             self?.refreshRandomWordLabels()
         }
         view.translatesAutoresizingMaskIntoConstraints = false

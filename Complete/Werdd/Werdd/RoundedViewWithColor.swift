@@ -11,7 +11,6 @@ class RoundedViewWithColor: UIView {
     
     // MARK: - Properties
     
-    let color: UIColor?
     var completion: (() -> Void)?
     
     let wordTitleLabel: UILabel = {
@@ -47,48 +46,65 @@ class RoundedViewWithColor: UIView {
     
     // MARK: - Initializer
     
-    init(backgroundColor: UIColor?, completion: (() -> Void)?) {
+    init(completion: (()-> Void)?) {
         self.completion = completion
-        self.color = backgroundColor
         
         super.init(frame: .zero)
-
         setUpUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - UI Setup
     
-    func setUpUI() {
-        backgroundColor = color
+    private func setUpUI() {
+        backgroundColor = UIColor(named: "WerddBlue")
         layer.cornerRadius = 20
-        setUpSubviews()
+        
+        setUpWordTitle()
+        setUpPartsOfSpeech()
+        setUpDefinition()
+        setUpRefreshButton()
     }
     
-    func setUpSubviews() {
+    func setUpWordTitle() {
         addSubview(wordTitleLabel)
-        addSubview(partsOfSpeechLabel)
-        addSubview(wordDefinitionLabel)
-        addSubview(refreshButton)
         
         NSLayoutConstraint.activate([
             wordTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            wordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            wordTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: partsOfSpeechLabel.leadingAnchor),
-            
+            wordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+    }
+    
+    func setUpPartsOfSpeech() {
+        addSubview(partsOfSpeechLabel)
+        
+        NSLayoutConstraint.activate([
             partsOfSpeechLabel.bottomAnchor.constraint(equalTo: wordTitleLabel.bottomAnchor, constant: -4),
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.trailingAnchor, constant: 5),
-            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
-            
+            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor)
+        ])
+    }
+    
+    func setUpDefinition() {
+        addSubview(wordDefinitionLabel)
+        
+        NSLayoutConstraint.activate([
             wordDefinitionLabel.topAnchor.constraint(equalTo: partsOfSpeechLabel.bottomAnchor, constant: 20),
             wordDefinitionLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.leadingAnchor),
-            wordDefinitionLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
-            
+            wordDefinitionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        ])
+    }
+    
+    func setUpRefreshButton() {
+        addSubview(refreshButton)
+        
+        NSLayoutConstraint.activate([
             refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
     }
 }
+
