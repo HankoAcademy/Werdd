@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Werdd
 //
 //  Created by Han Kim on 2/7/22.
@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     }()
     
     lazy var randomWordView: RoundedViewWithColor = {
-        let view = RoundedViewWithColor(color: UIColor(named: "WerddBlue")) { [weak self] in
+        let view = RoundedViewWithColor { [weak self] in
             self?.refreshRandomWordLabels()
         }
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -55,27 +55,43 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = UIColor(named: "Taupe")
         
-        addSubviews()
+        setUpUI()
         refreshRandomWordLabels()
     }
     
     // MARK: - UI Setup
     
-    func addSubviews() {
+    func setUpUI() {
+        setUpAppTitleLabel()
+        setUpRandomWordView()
+        setUpTableView()
+    }
+    
+    func setUpAppTitleLabel() {
         view.addSubview(appTitleLabel)
-        view.addSubview(randomWordView)
-        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             appTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
-            
+        ])
+    }
+    
+    func setUpRandomWordView() {
+        view.addSubview(randomWordView)
+        
+        NSLayoutConstraint.activate([
             randomWordView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
             randomWordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             randomWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
-
+            randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+        ])
+    }
+    
+    func setUpTableView() {
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
