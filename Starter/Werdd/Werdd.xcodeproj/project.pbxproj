@@ -19,6 +19,7 @@
 		AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */; };
 		AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */; };
 		AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECFA6B27B8C43A0018E146 /* Word.swift */; };
+		F35DD8062904718D006F720E /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35DD8052904718D006F720E /* Rubik-Italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViewWithColor.swift; sourceTree = "<group>"; };
 		AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		AEECFA6B27B8C43A0018E146 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		F35DD8052904718D006F720E /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5ABCE327C4781B0074E50C /* Rubik-Bold.ttf */,
+				F35DD8052904718D006F720E /* Rubik-Italic.ttf */,
 				AE5ABCE427C4781B0074E50C /* Rubik-Light.ttf */,
 				AE5ABCE527C4781B0074E50C /* Rubik-Regular.ttf */,
 				AE5ABCE227C4781B0074E50C /* Rubik-SemiBold.ttf */,
@@ -155,6 +158,7 @@
 				AE5ABCE927C4781C0074E50C /* Rubik-Regular.ttf in Resources */,
 				AE5ABCE727C4781C0074E50C /* Rubik-Bold.ttf in Resources */,
 				AE5ABCE827C4781C0074E50C /* Rubik-Light.ttf in Resources */,
+				F35DD8062904718D006F720E /* Rubik-Italic.ttf in Resources */,
 				AE535C7527B20F6600B307A2 /* LaunchScreen.storyboard in Resources */,
 				AE535C7227B20F6600B307A2 /* Assets.xcassets in Resources */,
 			);
