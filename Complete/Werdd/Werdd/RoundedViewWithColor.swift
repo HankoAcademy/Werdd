@@ -8,33 +8,34 @@
 import UIKit
 
 class RoundedViewWithColor: UIView {
-
-    let color: UIColor?
+    
+    // MARK: - Properties
+    
     var completion: (() -> Void)?
-
+    
     let wordTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Rubik-Bold", size: 24)
         return label
     }()
-
+    
     let partsOfSpeechLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Helvetica-Oblique", size: 14)
+        label.font = UIFont(name: "Rubik-Italic", size: 14)
         return label
     }()
-
+    
     let wordDefinitionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Rubik-Light", size: 12)
-        label.numberOfLines = 0
+        label.font = UIFont(name: "Rubik-Light", size: 18)
         label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
-
+    
     lazy var refreshButton: RefreshButton = {
         let button = RefreshButton { [weak self] in
             self?.completion?()
@@ -42,49 +43,68 @@ class RoundedViewWithColor: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
-    init(color: UIColor?, frame: CGRect = .zero, completion: (() -> Void)?) {
+    
+    // MARK: - Initializer
+    
+    init(completion: (()-> Void)?) {
         self.completion = completion
-        self.color = color
-
-        super.init(frame: frame)
-
+        
+        super.init(frame: .zero)
         setUpUI()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    func setUpUI() {
-        backgroundColor = color
+    
+    // MARK: - UI Setup
+    
+    private func setUpUI() {
+        backgroundColor = UIColor(named: "WerddBlue")
         layer.cornerRadius = 20
-        setUpSubviews()
+        
+        setUpWordTitle()
+        setUpPartsOfSpeech()
+        setUpDefinition()
+        setUpRefreshButton()
     }
-
-    func setUpSubviews() {
-
+    
+    func setUpWordTitle() {
         addSubview(wordTitleLabel)
-        addSubview(partsOfSpeechLabel)
-        addSubview(wordDefinitionLabel)
-        addSubview(refreshButton)
-
+        
         NSLayoutConstraint.activate([
             wordTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            wordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            wordTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: partsOfSpeechLabel.leadingAnchor),
-
-            partsOfSpeechLabel.topAnchor.constraint(equalTo: wordTitleLabel.topAnchor, constant: 8),
+            wordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+    }
+    
+    func setUpPartsOfSpeech() {
+        addSubview(partsOfSpeechLabel)
+        
+        NSLayoutConstraint.activate([
+            partsOfSpeechLabel.bottomAnchor.constraint(equalTo: wordTitleLabel.bottomAnchor, constant: -4),
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.trailingAnchor, constant: 5),
-            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
-
+            partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor)
+        ])
+    }
+    
+    func setUpDefinition() {
+        addSubview(wordDefinitionLabel)
+        
+        NSLayoutConstraint.activate([
             wordDefinitionLabel.topAnchor.constraint(equalTo: partsOfSpeechLabel.bottomAnchor, constant: 20),
             wordDefinitionLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.leadingAnchor),
-            wordDefinitionLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
-
+            wordDefinitionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        ])
+    }
+    
+    func setUpRefreshButton() {
+        addSubview(refreshButton)
+        
+        NSLayoutConstraint.activate([
             refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            refreshButton.widthAnchor.constraint(equalTo: refreshButton.heightAnchor)
+            refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
     }
 }
+

@@ -96,7 +96,7 @@ class WordTableViewCell: UITableViewCell {
         ])
     }
     
-    func updateViews(_ word: Word) {
+    func configure(with word: Word) {
         titleLabel.text = word.name
         subtitleLabel.text = word.definition
         partsOfSpeechLabel.text = word.partOfSpeech
