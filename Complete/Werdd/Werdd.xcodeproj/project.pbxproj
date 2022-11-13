@@ -19,6 +19,7 @@
 		AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */; };
 		AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */; };
 		AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECFA6B27B8C43A0018E146 /* Word.swift */; };
+		E921361C2920B8B800D3915D /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E921361B2920B8B800D3915D /* CommonError.swift */; };
 		F32319C0280BA3C8002926C7 /* DefinitionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */; };
 		F32319C4280E01D9002926C7 /* WordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C3280E01D9002926C7 /* WordDetailView.swift */; };
 		F32319C6280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */; };
@@ -45,6 +46,7 @@
 		AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViewWithColor.swift; sourceTree = "<group>"; };
 		AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		AEECFA6B27B8C43A0018E146 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		E921361B2920B8B800D3915D /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionDetailsViewController.swift; sourceTree = "<group>"; };
 		F32319C3280E01D9002926C7 /* WordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailView.swift; sourceTree = "<group>"; };
 		F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -87,13 +89,14 @@
 			isa = PBXGroup;
 			children = (
 				AE5ABCE127C478090074E50C /* Rubik */,
-				F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */,
+				E921361A2920B8B000D3915D /* Error */,
 				F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */,
+				F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */,
 				AE535C6C27B20F6400B307A2 /* HomeViewController.swift */,
-				F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */,
-				F32319CB280E51B8002926C7 /* SearchView.swift */,
 				F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */,
+				F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */,
 				F32319C3280E01D9002926C7 /* WordDetailView.swift */,
+				F32319CB280E51B8002926C7 /* SearchView.swift */,
 				AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */,
 				AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */,
 				AEECFA6B27B8C43A0018E146 /* Word.swift */,
@@ -114,6 +117,14 @@
 				F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */,
 			);
 			path = Rubik;
+			sourceTree = "<group>";
+		};
+		E921361A2920B8B000D3915D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E921361B2920B8B800D3915D /* CommonError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		F3BEE0A92815F12A00CACBC5 /* Supporting Files */ = {
@@ -205,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BEE0AB2815F1E700CACBC5 /* BaseViewController.swift in Sources */,
+				E921361C2920B8B800D3915D /* CommonError.swift in Sources */,
 				AE535C6D27B20F6400B307A2 /* HomeViewController.swift in Sources */,
 				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
 				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,

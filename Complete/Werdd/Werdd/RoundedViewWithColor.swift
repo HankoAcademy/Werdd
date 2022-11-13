@@ -74,14 +74,13 @@ class RoundedViewWithColor: UIView {
             wordTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             wordTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: partsOfSpeechLabel.leadingAnchor),
 
-            partsOfSpeechLabel.centerYAnchor.constraint(equalTo: wordTitleLabel.centerYAnchor),
+            partsOfSpeechLabel.topAnchor.constraint(equalTo: wordTitleLabel.topAnchor, constant: 8),
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.trailingAnchor, constant: 5),
             partsOfSpeechLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
 
             wordDefinitionLabel.topAnchor.constraint(equalTo: partsOfSpeechLabel.bottomAnchor, constant: 20),
             wordDefinitionLabel.leadingAnchor.constraint(equalTo: wordTitleLabel.leadingAnchor),
             wordDefinitionLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -20),
-            wordDefinitionLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -20),
 
             refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),

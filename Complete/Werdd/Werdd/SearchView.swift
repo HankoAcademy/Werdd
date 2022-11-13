@@ -15,6 +15,14 @@ class SearchView: UIView {
     
     weak var searchDefinitionsDelegate: SearchDefinitionsDelegate?
 
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
     let textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +44,7 @@ class SearchView: UIView {
         return textField
     }()
     
-    let searchButton: UIButton = {
+    lazy var searchButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Search", for: .normal)
@@ -64,11 +72,6 @@ class SearchView: UIView {
     
     private func setUpViews() {
         backgroundColor = .white
-        
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.spacing = 10
 
         stackView.addArrangedSubview(textField)
         stackView.addArrangedSubview(searchButton)

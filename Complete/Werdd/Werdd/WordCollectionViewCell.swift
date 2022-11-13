@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WordCollectionViewCell: UICollectionViewCell {
+final class WordCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Class Properties
     

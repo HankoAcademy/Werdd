@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpinnerViewController: UIViewController {
+final class SpinnerViewController: UIViewController {
     
     let spinner: UIActivityIndicatorView = {
         let activityIndicatorView = UIActivityIndicatorView(style: .large)

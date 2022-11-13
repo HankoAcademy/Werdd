@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
@@ -51,8 +51,20 @@ class HomeViewController: BaseViewController {
         return searchView
     }()
     
+    private let networkManager: NetworkManager
     var words: [WordDetail]?
     var selectedWord: String?
+    
+    // MARK: - Initializer
+    
+    init(networkManager: NetworkManager = NetworkManager()) {
+        self.networkManager = networkManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     
@@ -67,7 +79,7 @@ class HomeViewController: BaseViewController {
     
     // MARK: - UI Setup
     
-    func addSubviews() {
+    private func addSubviews() {
         view.addSubview(appTitleLabel)
         view.addSubview(randomWordView)
         view.addSubview(searchView)
@@ -96,10 +108,10 @@ class HomeViewController: BaseViewController {
     
     // MARK: - Actions
     
-    func refreshRandomWordLabels() {
+    private func refreshRandomWordLabels() {
         addSpinner()
         
-        NetworkManager.shared.fetchRandomWord { [weak self] result in
+        networkManager.fetchRandomWord { [weak self] result in
             switch result {
             case .success(let randomWord):
                 DispatchQueue.main.async {
@@ -161,7 +173,7 @@ extension HomeViewController: SearchDefinitionsDelegate {
         
         addSpinner()
         
-        NetworkManager.shared.fetchWordWithDetails(word) { [weak self] result in
+        networkManager.fetchWordWithDetails(word) { [weak self] result in
             switch result {
             case .success(let word):
                 DispatchQueue.main.async {
@@ -182,8 +194,17 @@ extension HomeViewController: SearchDefinitionsDelegate {
     // MARK: - Alerts
     
     private func presentMissingWordAlert() {
-        let alertController = UIAlertController(title: "", message: "Please enter a word in the text field first to retrieve definitions", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let alertController = UIAlertController(
+            title: "",
+            message: "Please enter a word in the text field first to retrieve definitions",
+            preferredStyle: .alert
+        )
+        alertController.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: .cancel,
+                handler: nil)
+        )
         present(alertController, animated: true, completion: nil)
     }
 }

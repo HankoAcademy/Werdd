@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DefinitionDetailsViewController: UIViewController {
+final class DefinitionDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -100,7 +100,7 @@ class DefinitionDetailsViewController: UIViewController {
     
     // MARK: - UI Setup
     
-    func setUpNavigation() {
+    private func setUpNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
@@ -108,12 +108,12 @@ class DefinitionDetailsViewController: UIViewController {
         navigationItem.title = selectedWord
     }
     
-    func setUpUI() {
+    private func setUpUI() {
         addScrollView()
         addStackViews()
     }
     
-    func addScrollView() {
+    private func addScrollView() {
         view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
@@ -124,7 +124,7 @@ class DefinitionDetailsViewController: UIViewController {
         ])
     }
     
-    func addStackViews() {
+    private func addStackViews() {
         contentStackView.addArrangedSubview(definitionView)
         contentStackView.addArrangedSubview(synonymsView)
         contentStackView.addArrangedSubview(antonymsView)

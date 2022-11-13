@@ -11,6 +11,7 @@ class BaseViewController: UIViewController {
 
     let spinnerViewController = SpinnerViewController()
     
+    /// Shows loading indicator 
     func addSpinner() {
         addChild(spinnerViewController)
         spinnerViewController.view.frame = view.frame
@@ -18,6 +19,7 @@ class BaseViewController: UIViewController {
         spinnerViewController.didMove(toParent: self)
     }
     
+    // Removes loading indicator
     func removeSpinner() {
         spinnerViewController.willMove(toParent: nil)
         spinnerViewController.view.removeFromSuperview()
