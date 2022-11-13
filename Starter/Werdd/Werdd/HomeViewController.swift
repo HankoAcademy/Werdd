@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Werdd
 //
 //  Created by Han Kim on 2/7/22.
@@ -60,6 +60,8 @@ class HomeViewController: UIViewController {
         setUpUI()
         refreshRandomWordLabels()
     }
+    
+    // MARK: - UI Setup
     
     func setUpUI() {
         setUpAppTitleLabel()

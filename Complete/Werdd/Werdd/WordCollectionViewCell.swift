@@ -11,7 +11,7 @@ class WordCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Class Properties
     
-    static let cellID = "WordCollectionViewCell"
+    static let identifier = "WordCollectionViewCell"
     
     // MARK: - UI Properties
     
@@ -57,14 +57,12 @@ class WordCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - UI Setup
     
     private func setUpViews() {
-        contentView.backgroundColor = .white
-        
         containerView.addSubview(titleLabel)
         containerView.addSubview(partsOfSpeechLabel)
         containerView.addSubview(subtitleLabel)
@@ -94,7 +92,7 @@ class WordCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func updateViews(_ word: Word) {
+    func configure(with word: Word) {
         titleLabel.text = word.name
         subtitleLabel.text = word.definition
         partsOfSpeechLabel.text = word.partOfSpeech
