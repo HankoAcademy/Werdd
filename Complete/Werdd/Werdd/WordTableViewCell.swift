@@ -11,7 +11,7 @@ class WordTableViewCell: UITableViewCell {
 
     // MARK: - Class Properties
     
-    static let identifier = WordTableViewCell.self.description()
+    static let identifier = "WordTableViewCell"
     
     // MARK: - UI Properties
     
@@ -58,17 +58,13 @@ class WordTableViewCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - UI Setup
     
     private func setUpViews() {
-        
-        titleLabel.text = "title"
-        partsOfSpeechLabel.text = "parts of speech"
-        subtitleLabel.text = "subtitle"
-        
+
         contentView.backgroundColor = .white
         
         containerView.addSubview(titleLabel)
