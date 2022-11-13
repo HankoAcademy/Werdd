@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(WordCollectionViewCell.self, forCellWithReuseIdentifier: WordCollectionViewCell.identifier)
+        collectionView.register(WordCollectionViewCell.self, forCellWithReuseIdentifier: WordCollectionViewCell.cellID)
         return collectionView
     }()
     
@@ -96,7 +96,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.identifier, for: indexPath) as? WordCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.cellID, for: indexPath) as? WordCollectionViewCell else {
             print("Expected WordTableViewCell but found nil")
             return UICollectionViewCell()
         }
