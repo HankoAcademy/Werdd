@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     }()
 
     lazy var randomWordView: RoundedViewWithColor = {
-        let view = RoundedViewWithColor(color: UIColor(named: "WerddBlue")) { [weak self] in
+        let view = RoundedViewWithColor { [weak self] in
             self?.refreshRandomWordLabels()
         }
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(WordCollectionViewCell.self, forCellWithReuseIdentifier: WordCollectionViewCell.identifier)
+        collectionView.register(WordCollectionViewCell.self, forCellWithReuseIdentifier: WordCollectionViewCell.cellID)
         return collectionView
     }()
     
@@ -50,27 +50,43 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = UIColor(named: "Taupe")
         
-        addSubviews()
+        setUpUI()
         refreshRandomWordLabels()
     }
     
     // MARK: - UI Setup
     
-    func addSubviews() {
+    func setUpUI() {
+        setUpAppTitleLabel()
+        setUpRandomWordView()
+        setUpCollectionView()
+    }
+    
+    func setUpAppTitleLabel() {
         view.addSubview(appTitleLabel)
-        view.addSubview(randomWordView)
-        view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
             appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             appTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
-            
+        ])
+    }
+    
+    func setUpRandomWordView() {
+        view.addSubview(randomWordView)
+        
+        NSLayoutConstraint.activate([
             randomWordView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
             randomWordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             randomWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
-            
+            randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+        ])
+    }
+    
+    func setUpCollectionView() {
+        view.addSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -96,7 +112,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.identifier, for: indexPath) as? WordCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.cellID, for: indexPath) as? WordCollectionViewCell else {
             print("Expected WordTableViewCell but found nil")
             return UICollectionViewCell()
         }

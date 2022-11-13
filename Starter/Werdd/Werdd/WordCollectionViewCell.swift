@@ -11,7 +11,7 @@ class WordCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Class Properties
     
-    static let identifier = WordCollectionViewCell.self.description()
+    static let cellID = "WordCollectionViewCell"
     
     // MARK: - UI Properties
     
@@ -63,10 +63,6 @@ class WordCollectionViewCell: UICollectionViewCell {
     // MARK: - UI Setup
     
     private func setUpViews() {
-        titleLabel.text = "title"
-        partsOfSpeechLabel.text = "parts of speech"
-        subtitleLabel.text = "subtitle"
-        
         contentView.backgroundColor = .white
         
         containerView.addSubview(titleLabel)
