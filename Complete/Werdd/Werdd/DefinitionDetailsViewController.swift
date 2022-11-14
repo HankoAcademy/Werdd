@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DefinitionDetailsViewController: UIViewController {
+final class DefinitionDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -31,46 +31,68 @@ class DefinitionDetailsViewController: UIViewController {
         return stackView
     }()
     
-    lazy var definitionView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "WerddBlue"))
+    lazy var definitionView: WordDetailsView = {
+        let wordDetailsView = WordDetailsView(
+            backgroundColor: UIColor(named: "WerddBlue"),
+            title: "Definition",
+            partsOfSpeech: wordDetail.partOfSpeech,
+            description: wordDetail.definition
+        )
         wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Definition"
-        wordDetailsView.partOfSpeech = wordDetail.partOfSpeech
-        wordDetailsView.details = wordDetail.definition
-        wordDetailsView.showPartsOfSpeech()
         return wordDetailsView
     }()
     
-    lazy var synonymsView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "WerddGreen"))
-        wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Synonyms"
+    lazy var synonymsView: WordDetailsView = {
         // if there are no synonyms, hide this whole view from displaying
-        wordDetailsView.isHidden = wordDetail.synonyms == nil
+        let hideSynonyms = wordDetail.synonyms == nil
+        
         // display synonyms separated by comma and a space
-        wordDetailsView.details = wordDetail.synonyms?.joined(separator: ", ")
+        let synonymsText = wordDetail.synonyms?.joined(separator: ", ")
+        
+        let wordDetailsView = WordDetailsView(
+            isHidden: hideSynonyms,
+            backgroundColor: UIColor(named: "WerddGreen"),
+            title: "Synonyms",
+            partsOfSpeech: nil,
+            description: synonymsText
+        )
+        wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
         return wordDetailsView
     }()
     
-    lazy var antonymsView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "WerddPink"))
-        wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Antonyms"
+    lazy var antonymsView: WordDetailsView = {
         // if there are no antonyms, hide this whole view from displaying
-        wordDetailsView.isHidden = wordDetail.antonyms == nil
+        let hideAntonyms = wordDetail.antonyms == nil
+        
         // display antonyms separated by comma and a space
-        wordDetailsView.details = wordDetail.antonyms?.joined(separator: ", ")
+        let antonymsText = wordDetail.antonyms?.joined(separator: ", ")
+        
+        let wordDetailsView = WordDetailsView(
+            isHidden: hideAntonyms,
+            backgroundColor: UIColor(named: "WerddPink"),
+            title: "Antonyms",
+            partsOfSpeech: nil,
+            description: antonymsText
+        )
+        wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
         return wordDetailsView
     }()
     
-    lazy var examplesView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "Creamsicle"))
-        wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Example Usage"
+    lazy var examplesView: WordDetailsView = {
         // if there are no examples, hide this whole view from displaying
-        wordDetailsView.isHidden = wordDetail.examples == nil
+        let hideExamples = wordDetail.examples == nil
+        
         // display examples separated by two new lines
-        wordDetailsView.details = wordDetail.examples?.joined(separator: "\n\n")
+        let examplesText = wordDetail.examples?.joined(separator: "\n\n")
+        
+        let wordDetailsView = WordDetailsView(
+            isHidden: hideExamples,
+            backgroundColor: UIColor(named: "Creamsicle"),
+            title: "Example Usage",
+            partsOfSpeech: nil,
+            description: examplesText
+        )
+        wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
         return wordDetailsView
     }()
     
@@ -84,7 +106,7 @@ class DefinitionDetailsViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - Lifecycle
@@ -100,20 +122,21 @@ class DefinitionDetailsViewController: UIViewController {
     
     // MARK: - UI Setup
     
-    func setUpNavigation() {
+    private func setUpNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
 
         navigationItem.title = wordDetail.name
     }
     
-    func setUpUI() {
+    private func setUpUI() {
         addScrollView()
         addStackViews()
     }
     
-    func addScrollView() {
+    private func addScrollView() {
         view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
@@ -124,7 +147,7 @@ class DefinitionDetailsViewController: UIViewController {
         ])
     }
     
-    func addStackViews() {
+    private func addStackViews() {
         contentStackView.addArrangedSubview(definitionView)
         contentStackView.addArrangedSubview(synonymsView)
         contentStackView.addArrangedSubview(antonymsView)

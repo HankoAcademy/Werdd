@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WordCollectionViewCell: UICollectionViewCell {
+final class WordCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Class Properties
     
@@ -27,7 +27,7 @@ class WordCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.font = UIFont(name: "Rubik-Bold", size: 18)
+        label.font = UIFont(name: "Rubik-Bold", size: 18) 
         return label
     }()
     

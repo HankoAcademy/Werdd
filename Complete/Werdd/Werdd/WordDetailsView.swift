@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class WordDetailView: UIView {
+final class WordDetailsView: UIView {
     
     // MARK: - UI Setup
     
@@ -59,59 +59,63 @@ class WordDetailView: UIView {
         return label
     }()
     
-    // MARK: - Property Observers
-    var title: String? {
-        didSet {
-            titleLabel.text = title
-        }
-    }
+    // MARK: - Properties
     
-    var partOfSpeech: String? {
-        didSet {
-            partsOfSpeechLabel.text = partOfSpeech
-        }
-    }
-    
-    var details: String? {
-        didSet {
-            descriptionLabel.text = details
-        }
-    }
+    let title: String?
+    let partsOfSpeech: String?
+    let descriptionText: String?
     
     // MARK: - Initializers
     
-    init(backgroundColor: UIColor? = .white) {
+    init(isHidden: Bool = false,
+         backgroundColor: UIColor? = .white,
+         title: String?,
+         partsOfSpeech: String?,
+         description: String?) {
+                
+        self.title = title
+        self.partsOfSpeech = partsOfSpeech
+        self.descriptionText = description
+        
         super.init(frame: .zero)
         
+        self.isHidden = isHidden
         self.backgroundColor = backgroundColor
+        
         setUpViews()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - UI Setup
     
-    func setUpViews() {
-        partsOfSpeechLabel.isHidden = true // hidden by default
+    private func setUpViews() {
         layer.cornerRadius = 20
+        
+        titleLabel.text = title
+        partsOfSpeechLabel.text = partsOfSpeech
+        descriptionLabel.text = descriptionText
+        
+        partsOfSpeechLabel.isHidden = partsOfSpeech == nil
+        
         addDescriptionStackView()
         addTitleLabel()
         addStackView()
     }
     
-    func addDescriptionStackView() {
+    private func addDescriptionStackView() {
         descriptionStackView.addArrangedSubview(partsOfSpeechLabel)
         descriptionStackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(descriptionStackView)
     }
     
-    func addTitleLabel() {
+    private func addTitleLabel() {
         stackView.addArrangedSubview(titleLabel)
     }
     
-    func addStackView() {
+    private func addStackView() {
         addSubview(stackView)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
@@ -119,9 +123,5 @@ class WordDetailView: UIView {
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
-    }
-    
-    func showPartsOfSpeech() {
-        partsOfSpeechLabel.isHidden = false
     }
 }
