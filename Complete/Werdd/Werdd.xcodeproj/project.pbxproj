@@ -105,8 +105,8 @@
 				AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */,
 				AEECFA6B27B8C43A0018E146 /* Word.swift */,
 				F32319C9280E3A7A002926C7 /* NetworkManager.swift */,
-				F3BEE0A92815F12A00CACBC5 /* Supporting Files */,
 				E95E623B2933265D00BC9D52 /* APIConstants.swift */,
+				F3BEE0A92815F12A00CACBC5 /* Supporting Files */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
