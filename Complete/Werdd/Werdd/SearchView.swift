@@ -65,7 +65,7 @@ class SearchView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - UI Setup
@@ -83,6 +83,7 @@ class SearchView: UIView {
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            searchButton.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     

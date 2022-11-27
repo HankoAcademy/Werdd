@@ -1,8 +1,8 @@
 //
-//  WordsDataSource.swift
+//  WordDataSource.swift
 //  Werdd
 //
-//  Created by Hannie Kim on 4/16/22.
+//  Created by Hanko Academy on 11/21/22.
 //
 
 import Foundation

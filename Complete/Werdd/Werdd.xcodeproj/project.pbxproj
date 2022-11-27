@@ -20,8 +20,9 @@
 		AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */; };
 		AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECFA6B27B8C43A0018E146 /* Word.swift */; };
 		E921361C2920B8B800D3915D /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E921361B2920B8B800D3915D /* CommonError.swift */; };
+		E95E622C2933144700BC9D52 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E95E622B2933144700BC9D52 /* Rubik-Italic.ttf */; };
 		F32319C0280BA3C8002926C7 /* DefinitionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */; };
-		F32319C4280E01D9002926C7 /* WordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C3280E01D9002926C7 /* WordDetailView.swift */; };
+		F32319C4280E01D9002926C7 /* WordDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C3280E01D9002926C7 /* WordDetailsView.swift */; };
 		F32319C6280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */; };
 		F32319CA280E3A7A002926C7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C9280E3A7A002926C7 /* NetworkManager.swift */; };
 		F32319CC280E51B8002926C7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319CB280E51B8002926C7 /* SearchView.swift */; };
@@ -47,8 +48,9 @@
 		AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		AEECFA6B27B8C43A0018E146 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		E921361B2920B8B800D3915D /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
+		E95E622B2933144700BC9D52 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionDetailsViewController.swift; sourceTree = "<group>"; };
-		F32319C3280E01D9002926C7 /* WordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailView.swift; sourceTree = "<group>"; };
+		F32319C3280E01D9002926C7 /* WordDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailsView.swift; sourceTree = "<group>"; };
 		F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		F32319C9280E3A7A002926C7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F32319CB280E51B8002926C7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -94,10 +96,10 @@
 				F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */,
 				AE535C6C27B20F6400B307A2 /* HomeViewController.swift */,
 				F32319BF280BA3C8002926C7 /* DefinitionDetailsViewController.swift */,
+				F32319C3280E01D9002926C7 /* WordDetailsView.swift */,
 				F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */,
-				F32319C3280E01D9002926C7 /* WordDetailView.swift */,
-				F32319CB280E51B8002926C7 /* SearchView.swift */,
 				AE5ABCEA27C49ECB0074E50C /* RoundedViewWithColor.swift */,
+				F32319CB280E51B8002926C7 /* SearchView.swift */,
 				AE5ABCEC27C49EFC0074E50C /* RefreshButton.swift */,
 				AEECFA6B27B8C43A0018E146 /* Word.swift */,
 				F32319C9280E3A7A002926C7 /* NetworkManager.swift */,
@@ -112,6 +114,7 @@
 				AE5ABCE327C4781B0074E50C /* Rubik-Bold.ttf */,
 				AE5ABCE427C4781B0074E50C /* Rubik-Light.ttf */,
 				F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */,
+				E95E622B2933144700BC9D52 /* Rubik-Italic.ttf */,
 				AE5ABCE527C4781B0074E50C /* Rubik-Regular.ttf */,
 				AE5ABCE227C4781B0074E50C /* Rubik-SemiBold.ttf */,
 				F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */,
@@ -202,6 +205,7 @@
 				F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */,
 				F32319C6280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf in Resources */,
 				AE5ABCE727C4781C0074E50C /* Rubik-Bold.ttf in Resources */,
+				E95E622C2933144700BC9D52 /* Rubik-Italic.ttf in Resources */,
 				AE5ABCE827C4781C0074E50C /* Rubik-Light.ttf in Resources */,
 				AE535C7527B20F6600B307A2 /* LaunchScreen.storyboard in Resources */,
 				AE535C7227B20F6600B307A2 /* Assets.xcassets in Resources */,
@@ -226,7 +230,7 @@
 				F32319CA280E3A7A002926C7 /* NetworkManager.swift in Sources */,
 				F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */,
 				AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */,
-				F32319C4280E01D9002926C7 /* WordDetailView.swift in Sources */,
+				F32319C4280E01D9002926C7 /* WordDetailsView.swift in Sources */,
 				F32319C0280BA3C8002926C7 /* DefinitionDetailsViewController.swift in Sources */,
 				AE535C6B27B20F6400B307A2 /* SceneDelegate.swift in Sources */,
 			);

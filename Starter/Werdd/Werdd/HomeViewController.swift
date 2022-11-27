@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Werdd
 //
 //  Created by Han Kim on 2/7/22.
@@ -32,12 +32,12 @@ class HomeViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: view.frame.size.width/2.2, height: view.frame.size.width/3.5)
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(WordCollectionViewCell.self, forCellWithReuseIdentifier: WordCollectionViewCell.cellID)
+        collectionView.register(WordCollectionViewCell.self, forCellWithReuseIdentifier: WordCollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -66,7 +66,7 @@ class HomeViewController: UIViewController {
         view.addSubview(appTitleLabel)
         
         NSLayoutConstraint.activate([
-            appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             appTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
         ])
@@ -107,25 +107,26 @@ class HomeViewController: UIViewController {
 // MARK: - UICollectionViewDataSource Methods
 
 extension HomeViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return words.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.cellID, for: indexPath) as? WordCollectionViewCell else {
-            print("Expected WordTableViewCell but found nil")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.identifier, for: indexPath) as? WordCollectionViewCell else {
             return UICollectionViewCell()
         }
-                    
-        cell.updateViews(words[indexPath.row])
+        
+        cell.configure(with: words[indexPath.row])
+        
         return cell
     }
 }
 
+// MARK: - UICollectionViewDelegate Methods
+
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedWord = words[indexPath.row]
-        
-        navigationController?.pushViewController(DefinitionDetailsViewController(wordDetail: selectedWord, selectedWord: selectedWord.name), animated: true)
+        navigationController?.pushViewController(DefinitionDetailsViewController(word: words[indexPath.row]), animated: true)
     }
 }

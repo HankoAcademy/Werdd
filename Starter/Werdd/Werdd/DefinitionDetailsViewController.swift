@@ -2,17 +2,16 @@
 //  DefinitionDetailsViewController.swift
 //  Werdd
 //
-//  Created by Hannie Kim on 4/16/22.
+//  Created by Hanko Academy on 11/21/22.
 //
 
 import UIKit
 
 class DefinitionDetailsViewController: UIViewController {
-    
+
     // MARK: - Properties
     
-    let wordDetail: Word
-    let selectedWord: String
+    let word: Word
     
     // MARK: - UI Properties
     
@@ -31,60 +30,76 @@ class DefinitionDetailsViewController: UIViewController {
         return stackView
     }()
     
-    lazy var definitionView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "WerddBlue"))
+    lazy var definitionView: WordDetailsView = {
+        let wordDetailsView = WordDetailsView(
+            backgroundColor: UIColor(named: "WerddBlue"),
+            title: "Definition",
+            partsOfSpeech: word.partOfSpeech,
+            descriptionText: word.definition
+        )
         wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Definition"
-        wordDetailsView.partOfSpeech = wordDetail.partOfSpeech
-        wordDetailsView.details = wordDetail.definition
-        wordDetailsView.showPartsOfSpeech()
         return wordDetailsView
     }()
     
-    lazy var synonymsView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "WerddGreen"))
+    lazy var synonymsView: WordDetailsView = {
+        let hideSynonyms = word.synonyms == nil
+        
+        let synonymsText = word.synonyms?.joined(separator: ", ")
+        let wordDetailsView = WordDetailsView(
+            isHidden: hideSynonyms,
+            backgroundColor: UIColor(named: "WerddGreen"),
+            title: "Synonyms",
+            partsOfSpeech: nil,
+            descriptionText: synonymsText
+        )
         wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Synonyms"
-        // if there are no synonyms, hide this whole view from displaying
-        wordDetailsView.isHidden = wordDetail.synonyms == nil
-        // display synonyms separated by comma and a space
-        wordDetailsView.details = wordDetail.synonyms?.joined(separator: ", ")
+        
         return wordDetailsView
     }()
     
-    lazy var antonymsView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "WerddPink"))
+    lazy var antonymsView: UIView = {
+        let hideAntonyms = word.antonyms == nil
+        
+        let antonymsText = word.antonyms?.joined(separator: ", ")
+        let wordDetailsView = WordDetailsView(
+            isHidden: hideAntonyms,
+            backgroundColor: UIColor(named: "WerddPink"),
+            title: "Antonyms",
+            partsOfSpeech: nil,
+            descriptionText: antonymsText
+        )
         wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Antonyms"
-        // if there are no antonyms, hide this whole view from displaying
-        wordDetailsView.isHidden = wordDetail.antonyms == nil
-        // display antonyms separated by comma and a space
-        wordDetailsView.details = wordDetail.antonyms?.joined(separator: ", ")
+        
         return wordDetailsView
     }()
     
-    lazy var examplesView: WordDetailView = {
-        let wordDetailsView = WordDetailView(backgroundColor: UIColor(named: "Creamsicle"))
+    lazy var examplesView: UIView = {
+        let hideExamples = word.examples == nil
+        
+        let examplesText = word.examples?.joined(separator: "\n\n")
+        
+        let wordDetailsView = WordDetailsView(
+            isHidden: hideExamples,
+            backgroundColor: UIColor(named: "Creamsicle"),
+            title: "Example Usage",
+            partsOfSpeech: nil,
+            descriptionText: examplesText
+        )
         wordDetailsView.translatesAutoresizingMaskIntoConstraints = false
-        wordDetailsView.title = "Example Usage"
-        // if there are no examples, hide this whole view from displaying
-        wordDetailsView.isHidden = wordDetail.examples == nil
-        // display examples separated by two new lines
-        wordDetailsView.details = wordDetail.examples?.joined(separator: "\n\n")
+        
         return wordDetailsView
     }()
     
-    // MARK: - Initializers
+    // MARK: - Initializer
     
-    init(wordDetail: Word, selectedWord: String) {
-        self.wordDetail = wordDetail
-        self.selectedWord = selectedWord
+    init(word: Word) {
+        self.word = word
         
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - Lifecycle
@@ -93,44 +108,44 @@ class DefinitionDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named: "Taupe")
-        
-        setUpUI()
+
         setUpNavigation()
+        setUpUI()
     }
     
     // MARK: - UI Setup
     
-    func setUpNavigation() {
+    private func setUpNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
-
-        navigationItem.title = wordDetail.name
+        
+        navigationItem.title = word.name
     }
     
-    func setUpUI() {
+    private func setUpUI() {
         addScrollView()
         addStackViews()
     }
     
-    func addScrollView() {
+    private func addScrollView() {
         view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
     
-    func addStackViews() {
+    private func addStackViews() {
         contentStackView.addArrangedSubview(definitionView)
         contentStackView.addArrangedSubview(synonymsView)
         contentStackView.addArrangedSubview(antonymsView)
         contentStackView.addArrangedSubview(examplesView)
         
-        // fills up any extra space to expand contentStackView to the height of scrollView
         let emptyView = UIView()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
         contentStackView.addArrangedSubview(emptyView)

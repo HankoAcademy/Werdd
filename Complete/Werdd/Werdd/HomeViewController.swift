@@ -20,7 +20,7 @@ final class HomeViewController: BaseViewController {
     }()
 
     lazy var randomWordView: RoundedViewWithColor = {
-        let view = RoundedViewWithColor(color: UIColor(named: "WerddBlue")) { [weak self] in
+        let view = RoundedViewWithColor { [weak self] in
             self?.refreshRandomWordLabels()
         }
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +32,7 @@ final class HomeViewController: BaseViewController {
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: view.frame.size.width/2.2, height: view.frame.size.width/3.5)
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
@@ -63,7 +63,7 @@ final class HomeViewController: BaseViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - Lifecycle
@@ -73,32 +73,54 @@ final class HomeViewController: BaseViewController {
         
         view.backgroundColor = UIColor(named: "Taupe")
         
-        addSubviews()
+        setUpUI()
         refreshRandomWordLabels()
     }
     
     // MARK: - UI Setup
     
-    private func addSubviews() {
+    func setUpUI() {
+        setUpAppTitleLabel()
+        setUpRandomWordView()
+        setUpSearchView()
+        setUpCollectionView()
+    }
+    
+    func setUpAppTitleLabel() {
         view.addSubview(appTitleLabel)
-        view.addSubview(randomWordView)
-        view.addSubview(searchView)
-        view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
             appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             appTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
-            
+        ])
+    }
+    
+    func setUpRandomWordView() {
+        view.addSubview(randomWordView)
+        
+        NSLayoutConstraint.activate([
             randomWordView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
             randomWordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             randomWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20),
-            
+            randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+        ])
+    }
+    
+    func setUpSearchView() {
+        view.addSubview(searchView)
+        
+        NSLayoutConstraint.activate([
             searchView.topAnchor.constraint(equalTo: randomWordView.bottomAnchor, constant: 35),
             searchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             searchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
+        ])
+    }
+    
+    func setUpCollectionView() {
+        view.addSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: searchView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -130,7 +152,7 @@ final class HomeViewController: BaseViewController {
     }
 }
 
-// MARK: - UICollectionViewDataSource & UICollectionViewDelegate Methods
+// MARK: - UICollectionViewDataSource Methods
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -139,14 +161,16 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.identifier, for: indexPath) as? WordCollectionViewCell else {
-            print("Expected WordTableViewCell but found nil")
             return UICollectionViewCell()
         }
                     
-        cell.updateViews(words?[indexPath.row], word: selectedWord)
+        cell.configure(words?[indexPath.row], word: selectedWord)
+        
         return cell
     }
 }
+
+// MARK: - UICollectionViewDelegate Methods
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

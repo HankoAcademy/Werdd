@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class WordCollectionViewCell: UICollectionViewCell {
+class WordCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Class Properties
     
-    static let identifier = WordCollectionViewCell.self.description()
+    static let identifier = "WordCollectionViewCell"
     
     // MARK: - UI Properties
     
@@ -36,7 +36,8 @@ final class WordCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.numberOfLines = 4
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
@@ -57,16 +58,13 @@ final class WordCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
     
     // MARK: - UI Setup
     
     private func setUpViews() {
-        titleLabel.text = "title"
-        partsOfSpeechLabel.text = "parts of speech"
-        subtitleLabel.text = "subtitle"
-        
+
         contentView.backgroundColor = .white
         
         containerView.addSubview(titleLabel)
@@ -74,17 +72,17 @@ final class WordCollectionViewCell: UICollectionViewCell {
         containerView.addSubview(subtitleLabel)
                 
         contentView.addSubview(containerView)
-        
+                
         titleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         partsOfSpeechLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 12),
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
             
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 4),
@@ -93,12 +91,12 @@ final class WordCollectionViewCell: UICollectionViewCell {
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
-            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -12)
+            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -4),
+            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -10)
         ])
     }
     
-    func updateViews(_ wordDetail: WordDetail?, word: String?) {
+    func configure(_ wordDetail: WordDetail?, word: String?) {
         titleLabel.text = word
         subtitleLabel.text = wordDetail?.definition
         partsOfSpeechLabel.text = wordDetail?.partOfSpeech
