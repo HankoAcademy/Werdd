@@ -31,7 +31,7 @@ final class NetworkManager {
         }
         
         let headers = [
-            "x-rapidapi-key": "yourapikey",
+            "x-rapidapi-key": APIConstants.key,
             "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
         ]
         
@@ -66,7 +66,7 @@ final class NetworkManager {
         }
         
         let headers = [
-            "x-rapidapi-key": "yourapikey",
+            "x-rapidapi-key": APIConstants.key,
             "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
         ]
         
