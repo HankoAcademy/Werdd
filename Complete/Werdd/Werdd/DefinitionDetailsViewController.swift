@@ -13,6 +13,12 @@ final class DefinitionDetailsViewController: UIViewController {
     
     let wordDetail: WordDetail
     let selectedWord: String
+    let dataManager: DataManager
+    var isFavorited: Bool = false {
+        didSet {
+            updateRightBarButton()
+        }
+    }
     
     // MARK: - UI Properties
     
@@ -93,9 +99,14 @@ final class DefinitionDetailsViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(wordDetail: WordDetail, selectedWord: String) {
+    init(
+        wordDetail: WordDetail,
+        selectedWord: String,
+        dataManager: DataManager = DataManager()
+    ) {
         self.wordDetail = wordDetail
         self.selectedWord = selectedWord
+        self.dataManager = dataManager
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -113,6 +124,15 @@ final class DefinitionDetailsViewController: UIViewController {
         
         setUpUI()
         setUpNavigation()
+        
+        dataManager.fetchFavoriteWord(definition: wordDetail.definition, title: selectedWord) { favoritedWord in
+            guard favoritedWord != nil else {
+                isFavorited = false
+                return
+            }
+            
+            isFavorited = true
+        }
     }
     
     // MARK: - UI Setup
@@ -121,8 +141,25 @@ final class DefinitionDetailsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
-
         navigationItem.title = selectedWord
+    }
+    
+    @objc func removeWordFromFavorites() {
+        dataManager.delete(title: selectedWord, definition: wordDetail.definition)
+        isFavorited = false
+    }
+    
+    private func updateRightBarButton() {
+        if isFavorited {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .done, target: self, action: #selector(removeWordFromFavorites))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .done, target: self, action: #selector(addToFavorites))
+        }
+    }
+    
+    @objc func addToFavorites() {
+        dataManager.createFavoriteWord(from: selectedWord, and: wordDetail)
+        isFavorited = true
     }
     
     private func setUpUI() {

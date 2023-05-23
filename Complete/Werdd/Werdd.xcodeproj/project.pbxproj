@@ -27,6 +27,12 @@
 		F32319C6280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */; };
 		F32319CA280E3A7A002926C7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319C9280E3A7A002926C7 /* NetworkManager.swift */; };
 		F32319CC280E51B8002926C7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32319CB280E51B8002926C7 /* SearchView.swift */; };
+		F39027602A1B2DBE00414EB9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390275F2A1B2DBE00414EB9 /* DataManager.swift */; };
+		F39027632A1B31C000414EB9 /* FavoriteWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39027622A1B31C000414EB9 /* FavoriteWordsViewController.swift */; };
+		F39027662A1B33B400414EB9 /* Werdd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F39027642A1B33B400414EB9 /* Werdd.xcdatamodeld */; };
+		F390276C2A1C79AB00414EB9 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390276B2A1C79AB00414EB9 /* WordTableViewCell.swift */; };
+		F39027712A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390276F2A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift */; };
+		F39027722A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39027702A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift */; };
 		F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */; };
 		F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */; };
 		F3BEE0A82815F12200CACBC5 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */; };
@@ -56,6 +62,12 @@
 		F32319C5280E02F1002926C7 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		F32319C9280E3A7A002926C7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F32319CB280E51B8002926C7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		F390275F2A1B2DBE00414EB9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		F39027622A1B31C000414EB9 /* FavoriteWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWordsViewController.swift; sourceTree = "<group>"; };
+		F39027652A1B33B400414EB9 /* Werdd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Werdd.xcdatamodel; sourceTree = "<group>"; };
+		F390276B2A1C79AB00414EB9 /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
+		F390276F2A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FavoriteWord+CoreDataClass.swift"; path = "Werdd/DataManager/FavoriteWord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F39027702A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FavoriteWord+CoreDataProperties.swift"; path = "Werdd/DataManager/FavoriteWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +88,8 @@
 		AE535C5C27B20F6400B307A2 = {
 			isa = PBXGroup;
 			children = (
+				F390276F2A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift */,
+				F39027702A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift */,
 				AE535C6727B20F6400B307A2 /* Werdd */,
 				AE535C6627B20F6400B307A2 /* Products */,
 			);
@@ -92,6 +106,8 @@
 		AE535C6727B20F6400B307A2 /* Werdd */ = {
 			isa = PBXGroup;
 			children = (
+				F39027612A1B31A800414EB9 /* FavoriteWords */,
+				F390275E2A1B2DAC00414EB9 /* DataManager */,
 				AE5ABCE127C478090074E50C /* Rubik */,
 				E921361A2920B8B000D3915D /* Error */,
 				F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */,
@@ -107,6 +123,7 @@
 				F32319C9280E3A7A002926C7 /* NetworkManager.swift */,
 				E95E623B2933265D00BC9D52 /* APIConstants.swift */,
 				F3BEE0A92815F12A00CACBC5 /* Supporting Files */,
+				F39027642A1B33B400414EB9 /* Werdd.xcdatamodeld */,
 			);
 			path = Werdd;
 			sourceTree = "<group>";
@@ -131,6 +148,23 @@
 				E921361B2920B8B800D3915D /* CommonError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		F390275E2A1B2DAC00414EB9 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				F390275F2A1B2DBE00414EB9 /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		F39027612A1B31A800414EB9 /* FavoriteWords */ = {
+			isa = PBXGroup;
+			children = (
+				F39027622A1B31C000414EB9 /* FavoriteWordsViewController.swift */,
+				F390276B2A1C79AB00414EB9 /* WordTableViewCell.swift */,
+			);
+			path = FavoriteWords;
 			sourceTree = "<group>";
 		};
 		F3BEE0A92815F12A00CACBC5 /* Supporting Files */ = {
@@ -223,18 +257,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BEE0AB2815F1E700CACBC5 /* BaseViewController.swift in Sources */,
+				F39027602A1B2DBE00414EB9 /* DataManager.swift in Sources */,
 				E921361C2920B8B800D3915D /* CommonError.swift in Sources */,
 				AE535C6D27B20F6400B307A2 /* HomeViewController.swift in Sources */,
 				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
 				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,
+				F39027712A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift in Sources */,
+				F39027662A1B33B400414EB9 /* Werdd.xcdatamodeld in Sources */,
 				AE5ABCEB27C49ECB0074E50C /* RoundedViewWithColor.swift in Sources */,
 				F3BEE0A82815F12200CACBC5 /* SpinnerViewController.swift in Sources */,
 				F32319CC280E51B8002926C7 /* SearchView.swift in Sources */,
 				F32319CA280E3A7A002926C7 /* NetworkManager.swift in Sources */,
+				F39027722A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift in Sources */,
 				F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */,
 				AE535C6927B20F6400B307A2 /* AppDelegate.swift in Sources */,
+				F39027632A1B31C000414EB9 /* FavoriteWordsViewController.swift in Sources */,
 				E95E623C2933265D00BC9D52 /* APIConstants.swift in Sources */,
 				F32319C4280E01D9002926C7 /* WordDetailsView.swift in Sources */,
+				F390276C2A1C79AB00414EB9 /* WordTableViewCell.swift in Sources */,
 				F32319C0280BA3C8002926C7 /* DefinitionDetailsViewController.swift in Sources */,
 				AE535C6B27B20F6400B307A2 /* SceneDelegate.swift in Sources */,
 			);
@@ -446,6 +486,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F39027642A1B33B400414EB9 /* Werdd.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F39027652A1B33B400414EB9 /* Werdd.xcdatamodel */,
+			);
+			currentVersion = F39027652A1B33B400414EB9 /* Werdd.xcdatamodel */;
+			name = Werdd.xcdatamodeld;
+			path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/Werdd.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AE535C5D27B20F6400B307A2 /* Project object */;
 }

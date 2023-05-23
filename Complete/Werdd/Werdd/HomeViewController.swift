@@ -11,12 +11,32 @@ final class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
+    let headerStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
     let appTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Werdd."
         label.font = UIFont(name: "Rubik-SemiBold", size: 32)
         return label
+    }()
+    
+    lazy var favoritesListButton: UIButton = {
+        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium, scale: .medium)
+        let image = UIImage(systemName: "heart.text.square.fill", withConfiguration: symbolConfiguration)
+
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(image, for: .normal)
+        button.imageView?.tintColor = UIColor(named: "WerddPink")
+        button.addTarget(self, action: #selector(favoritesListButtonPressed), for: .touchUpInside)
+        return button
     }()
 
     lazy var randomWordView: RoundedViewWithColor = {
@@ -80,19 +100,22 @@ final class HomeViewController: BaseViewController {
     // MARK: - UI Setup
     
     func setUpUI() {
-        setUpAppTitleLabel()
+        setUpHeader()
         setUpRandomWordView()
         setUpSearchView()
         setUpCollectionView()
     }
     
-    func setUpAppTitleLabel() {
-        view.addSubview(appTitleLabel)
+    func setUpHeader() {
+        headerStackView.addArrangedSubview(appTitleLabel)
+        headerStackView.addArrangedSubview(favoritesListButton)
+        
+        view.addSubview(headerStackView)
         
         NSLayoutConstraint.activate([
-            appTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            appTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            appTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
+            headerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            headerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
     }
     
@@ -100,7 +123,7 @@ final class HomeViewController: BaseViewController {
         view.addSubview(randomWordView)
         
         NSLayoutConstraint.activate([
-            randomWordView.topAnchor.constraint(equalTo: appTitleLabel.bottomAnchor, constant: 30),
+            randomWordView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: 30),
             randomWordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             randomWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             randomWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
@@ -149,6 +172,10 @@ final class HomeViewController: BaseViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    @objc func favoritesListButtonPressed() {
+        navigationController?.pushViewController(FavoriteWordsViewController(), animated: true)
     }
 }
 
