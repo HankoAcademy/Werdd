@@ -79,21 +79,20 @@ class WordTableViewCell: UITableViewCell {
         partsOfSpeechLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 12),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             
             partsOfSpeechLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 4),
-            partsOfSpeechLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
             partsOfSpeechLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -12)
         ])
     }

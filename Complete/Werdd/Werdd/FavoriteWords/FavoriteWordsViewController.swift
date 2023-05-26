@@ -19,6 +19,7 @@ final class FavoriteWordsViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.register(WordTableViewCell.self, forCellReuseIdentifier: WordTableViewCell.identifier)
+        tableView.separatorStyle = .none
         return tableView
     }()
     
