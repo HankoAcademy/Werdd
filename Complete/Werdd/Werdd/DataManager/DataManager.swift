@@ -10,6 +10,12 @@ import CoreData
 import UIKit
 
 final class DataManager {
+    
+    enum PersistenceError: Error {
+        case general
+        case unableToDelete
+    }
+    
     var managedObjectContext: NSManagedObjectContext = {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -60,15 +66,15 @@ final class DataManager {
     
     // MARK: - DELETE
     
-    func deleteAll() {
+    func deleteAll() throws {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FavoriteWord")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
             try managedObjectContext.execute(deleteRequest)
             try managedObjectContext.save()
-        } catch let error as NSError {
-            // TODO: handle the error
+        } catch {
+            throw PersistenceError.unableToDelete
         }
     }
     
@@ -86,13 +92,13 @@ final class DataManager {
         }
     }
     
-    func deleteFavoriteWord(_ favoriteWord: FavoriteWord) {
+    func deleteFavoriteWord(_ favoriteWord: FavoriteWord) throws {
         managedObjectContext.delete(favoriteWord)
         
         do {
             try managedObjectContext.save()
-        } catch let error as NSError {
-            print("Could not update. \(error), \(error.userInfo)")
+        } catch {
+            throw PersistenceError.unableToDelete
         }
     }
 }

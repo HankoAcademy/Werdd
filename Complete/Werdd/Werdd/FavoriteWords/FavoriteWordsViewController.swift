@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FavoriteWordsViewController: UIViewController {
+final class FavoriteWordsViewController: BaseViewController {
 
     // MARK: - Properties
     
@@ -18,6 +18,7 @@ final class FavoriteWordsViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(WordTableViewCell.self, forCellReuseIdentifier: WordTableViewCell.identifier)
         tableView.separatorStyle = .none
         return tableView
@@ -67,6 +68,16 @@ final class FavoriteWordsViewController: UIViewController {
             self.favoriteWords = favoriteWords
         }
     }
+    
+    private func deleteFavoritedWord(_ word: FavoriteWord, atIndexPath indexPath: IndexPath) {
+        do {
+            try dataManager.deleteFavoriteWord(word)
+            favoriteWords?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } catch {
+            presentGenericErrorAlert()
+        }
+    }
 }
 
 extension FavoriteWordsViewController: UITableViewDataSource {
@@ -81,5 +92,19 @@ extension FavoriteWordsViewController: UITableViewDataSource {
         
         cell.updateViews(with: favoriteWord)
         return cell
+    }
+}
+
+extension FavoriteWordsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Delete", message: "Do you want to delete this werdd from your Favorites?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+            guard let favoriteWord = self.favoriteWords?[indexPath.row] else { return }
+            
+            self.deleteFavoritedWord(favoriteWord, atIndexPath: indexPath)
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true, completion: nil)
     }
 }

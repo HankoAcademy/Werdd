@@ -16,7 +16,7 @@ extension FavoriteWord {
         return NSFetchRequest<FavoriteWord>(entityName: "FavoriteWord")
     }
 
-    @NSManaged public var definition: String?
+    @NSManaged public var definition: String
     @NSManaged public var antonyms: [String]?
     @NSManaged public var synonyms: [String]?
     @NSManaged public var title: String?
@@ -29,3 +29,4 @@ extension FavoriteWord {
 extension FavoriteWord : Identifiable {
 
 }
+

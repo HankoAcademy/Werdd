@@ -228,8 +228,8 @@ extension HomeViewController: SearchDefinitionsDelegate {
             switch result {
             case .success(let word):
                 DispatchQueue.main.async {
-                    let resultsThatIncludeADefinition = word.results?.filter { $0.definition != nil }
-                    self?.words = resultsThatIncludeADefinition
+                    let wordDetails = word.results
+                    self?.words = wordDetails
                     self?.selectedWord = word.word
                     self?.collectionView.reloadData() // reloads the collectionView to use the updated `words` array values
                     self?.removeSpinner()

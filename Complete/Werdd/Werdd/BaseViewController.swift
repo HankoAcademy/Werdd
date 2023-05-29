@@ -25,4 +25,10 @@ class BaseViewController: UIViewController {
         spinnerViewController.view.removeFromSuperview()
         spinnerViewController.removeFromParent()
     }
+    
+    func presentGenericErrorAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Unexpected error occurred. Please try again later 🏗️", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alertController, animated: true)
+    }
 }
