@@ -34,6 +34,8 @@
 		F39027712A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390276F2A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift */; };
 		F39027722A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39027702A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift */; };
 		F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */; };
+		F3B6EB8D2A25AD06005078B1 /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6EB8C2A25AD06005078B1 /* WordDetail.swift */; };
+		F3B6EB8F2A25AD26005078B1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6EB8E2A25AD26005078B1 /* HomeViewModel.swift */; };
 		F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */; };
 		F3BEE0A82815F12200CACBC5 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */; };
 		F3BEE0AB2815F1E700CACBC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */; };
@@ -69,6 +71,8 @@
 		F390276F2A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteWord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F39027702A1C7DAC00414EB9 /* FavoriteWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		F3B6EB8C2A25AD06005078B1 /* WordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
+		F3B6EB8E2A25AD26005078B1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			children = (
 				F3B6EB812A25AB5D005078B1 /* Models */,
 				F3B6EB822A25AB61005078B1 /* Views */,
+				F3B6EB8B2A25ACCF005078B1 /* ViewModel */,
 				F3B6EB832A25AB63005078B1 /* Controllers */,
 				F39027612A1B31A800414EB9 /* FavoriteWords */,
 				F3B6EB8A2A25AC1D005078B1 /* Utility */,
@@ -162,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				AEECFA6B27B8C43A0018E146 /* Word.swift */,
+				F3B6EB8C2A25AD06005078B1 /* WordDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +251,14 @@
 				E921361A2920B8B000D3915D /* Error */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		F3B6EB8B2A25ACCF005078B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3B6EB8E2A25AD26005078B1 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F3BEE0A92815F12A00CACBC5 /* Supporting Files */ = {
@@ -338,8 +352,10 @@
 			files = (
 				F3BEE0AB2815F1E700CACBC5 /* BaseViewController.swift in Sources */,
 				F39027602A1B2DBE00414EB9 /* DataManager.swift in Sources */,
+				F3B6EB8D2A25AD06005078B1 /* WordDetail.swift in Sources */,
 				E921361C2920B8B800D3915D /* CommonError.swift in Sources */,
 				AE535C6D27B20F6400B307A2 /* HomeViewController.swift in Sources */,
+				F3B6EB8F2A25AD26005078B1 /* HomeViewModel.swift in Sources */,
 				AE5ABCED27C49EFC0074E50C /* RefreshButton.swift in Sources */,
 				AEECFA6C27B8C43A0018E146 /* Word.swift in Sources */,
 				F39027712A1C7DAC00414EB9 /* FavoriteWord+CoreDataClass.swift in Sources */,

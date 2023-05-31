@@ -19,11 +19,11 @@ final class HomeViewController: BaseViewController {
         return stackView
     }()
     
-    let appTitleLabel: UILabel = {
+    lazy var appTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Werdd."
-        label.font = UIFont(name: "Rubik-SemiBold", size: 32)
+        label.text = viewModel.appTitle
+        label.font = viewModel.appTitleFont
         return label
     }()
     
@@ -34,7 +34,7 @@ final class HomeViewController: BaseViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(image, for: .normal)
-        button.imageView?.tintColor = UIColor(named: "WerddPink")
+        button.imageView?.tintColor = viewModel.favoriteButtonTintColor
         button.addTarget(self, action: #selector(favoritesListButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -71,14 +71,12 @@ final class HomeViewController: BaseViewController {
         return searchView
     }()
     
-    private let networkManager: NetworkManager
-    var words: [WordDetail]?
-    var selectedWord: String?
+    private let viewModel: HomeViewModel
     
     // MARK: - Initializer
     
-    init(networkManager: NetworkManager = NetworkManager()) {
-        self.networkManager = networkManager
+    init(viewModel: HomeViewModel = HomeViewModel()) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -156,20 +154,19 @@ final class HomeViewController: BaseViewController {
     private func refreshRandomWordLabels() {
         addSpinner()
         
-        networkManager.fetchRandomWord { [weak self] result in
-            switch result {
-            case .success(let randomWord):
+        Task {
+            do {
+                try await viewModel.refreshRandomWord()
                 DispatchQueue.main.async {
-                    self?.randomWordView.wordTitleLabel.text = randomWord.word
-                    self?.randomWordView.partsOfSpeechLabel.text = randomWord.results?.first?.partOfSpeech
-                    self?.randomWordView.wordDefinitionLabel.text = randomWord.results?.first?.definition
-                    self?.removeSpinner()
+                    self.randomWordView.wordTitleLabel.text = self.viewModel.randomWordTitle
+                    self.randomWordView.partsOfSpeechLabel.text = self.viewModel.randomWordPartsOfSpeech
+                    self.randomWordView.wordDefinitionLabel.text = self.viewModel.randomWordDefinition
+                    self.removeSpinner()
                 }
-            case .failure(let error):
+            } catch {
                 DispatchQueue.main.async {
-                    self?.removeSpinner()
+                    self.removeSpinner()
                 }
-                print(error.localizedDescription)
             }
         }
     }
@@ -183,15 +180,18 @@ final class HomeViewController: BaseViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return words?.count ?? 0
+        return viewModel.wordDetails?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WordCollectionViewCell.identifier, for: indexPath) as? WordCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: WordCollectionViewCell.identifier,
+            for: indexPath
+        ) as? WordCollectionViewCell else {
             return UICollectionViewCell()
         }
                     
-        cell.configure(words?[indexPath.row], word: selectedWord)
+        cell.configure(viewModel.wordDetails?[indexPath.row], word: viewModel.selectedWord)
         
         return cell
     }
@@ -201,9 +201,8 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedWord = selectedWord,
-              let selectedWordDetails = words?[indexPath.row] else {
-            assertionFailure("Selected word unexpectedly found nil")
+        guard let selectedWord = viewModel.selectedWord,
+              let selectedWordDetails = viewModel.wordDetails?[indexPath.row] else {
             return
         }
         
@@ -224,20 +223,17 @@ extension HomeViewController: SearchDefinitionsDelegate {
         
         addSpinner()
         
-        networkManager.fetchWordWithDetails(word) { [weak self] result in
-            switch result {
-            case .success(let word):
+        Task {
+            do {
+                try await viewModel.fetchWord(word)
                 DispatchQueue.main.async {
-                    let wordDetails = word.results
-                    self?.words = wordDetails
-                    self?.selectedWord = word.word
-                    self?.collectionView.reloadData() // reloads the collectionView to use the updated `words` array values
-                    self?.removeSpinner()
+                    self.collectionView.reloadData()
+                    self.removeSpinner()
                 }
-            case .failure(let error):
-                // good place to handle errors
-                print("Failed to decode RandomWord with error: \(error.localizedDescription)")
-                self?.removeSpinner()
+            } catch {
+                DispatchQueue.main.async {
+                    self.removeSpinner()
+                }
             }
         }
     }

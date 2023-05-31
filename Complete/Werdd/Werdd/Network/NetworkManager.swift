@@ -23,11 +23,10 @@ enum APIError: LocalizedError {
 
 final class NetworkManager {
     
-    /// Fetches a random word and its details
-    func fetchRandomWord(completion: @escaping (Result<Word, Error>) -> Void) {
+    /// Makes a network request for a randomly generated word and its details
+    func fetchRandomWord() async throws -> Word {
         guard let randomWordDataURL = URL(string: "https://wordsapiv1.p.rapidapi.com/words/?random=true&hasDetails=definitions") else {
-            completion(.failure(CommonError.invalidURL))
-            return
+            throw CommonError.invalidURL
         }
         
         let headers = [
@@ -39,30 +38,21 @@ final class NetworkManager {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Fetching for random word failed with error: \(String(describing: error?.localizedDescription))")
-                completion(.failure(APIError.networkError))
-                return
-            }
-            
-            do {
-                let randomWord = try JSONDecoder().decode(Word.self, from: data)
-                completion(.success(randomWord))
-            }
-            catch {
-                print("Failed to decode Word with error: \(error.localizedDescription)")
-                completion(.failure(error))
-            }
-        }.resume()
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            let randomWord = try JSONDecoder().decode(Word.self, from: data)
+            return randomWord
+        } catch {
+            print("Fetching for random word failed with error: \(error.localizedDescription)")
+            throw APIError.networkError
+        }
     }
     
     /// Fetches details for a specified word
     /// - Parameter word: The word in which we want additional details for
-    func fetchWordWithDetails(_ word: String, completion: @escaping (Result<Word, Error>) -> Void) {
+    func fetchWordWithDetails(_ word: String) async throws -> Word {
         guard let fetchWordDataURL = URL(string: "https://worsdapiv1.p.rapidapi.com/words/\(word)") else {
-            completion(.failure(CommonError.invalidURL))
-            return
+            throw CommonError.invalidURL
         }
         
         let headers = [
@@ -74,21 +64,14 @@ final class NetworkManager {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Fetching for word details failed with error: \(String(describing: error?.localizedDescription))")
-                completion(.failure(APIError.networkError))
-                return
-            }
-            
-            do {
-                let word = try JSONDecoder().decode(Word.self, from: data)
-                completion(.success(word))
-            }
-            catch {
-                print("Failed to decode Word with error: \(error.localizedDescription)")
-                completion(.failure(error))
-            }
-        }.resume()
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        do {
+            let word = try JSONDecoder().decode(Word.self, from: data)
+            return word
+        } catch {
+            print("Failed to decode Word with error: \(error.localizedDescription)")
+            throw error
+        }
     }
 }
