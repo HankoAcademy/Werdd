@@ -36,10 +36,23 @@
 		F3AB29CD27EFF49800AF8B24 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */; };
 		F3B6EB8D2A25AD06005078B1 /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6EB8C2A25AD06005078B1 /* WordDetail.swift */; };
 		F3B6EB8F2A25AD26005078B1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6EB8E2A25AD26005078B1 /* HomeViewModel.swift */; };
+		F3B6EBA62A26D35F005078B1 /* WerddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6EBA52A26D35F005078B1 /* WerddTests.swift */; };
+		F3B6EBAD2A26D662005078B1 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6EBAC2A26D662005078B1 /* HomeViewModelTests.swift */; };
+		F3B6EBAF2A26DB45005078B1 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B6EBAE2A26DB45005078B1 /* MockNetworkManager.swift */; };
 		F3B9B13927E8236500FE7DE1 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */; };
 		F3BEE0A82815F12200CACBC5 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */; };
 		F3BEE0AB2815F1E700CACBC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3B6EBA72A26D35F005078B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE535C5D27B20F6400B307A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE535C6427B20F6400B307A2;
+			remoteInfo = Werdd;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AE535C6527B20F6400B307A2 /* Werdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Werdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +86,10 @@
 		F3AB29CC27EFF49800AF8B24 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
 		F3B6EB8C2A25AD06005078B1 /* WordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
 		F3B6EB8E2A25AD26005078B1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F3B6EBA32A26D35F005078B1 /* WerddTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WerddTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3B6EBA52A26D35F005078B1 /* WerddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WerddTests.swift; sourceTree = "<group>"; };
+		F3B6EBAC2A26D662005078B1 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		F3B6EBAE2A26DB45005078B1 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		F3B9B13827E8236500FE7DE1 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3BEE0A72815F12200CACBC5 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		F3BEE0AA2815F1E700CACBC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +103,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3B6EBA02A26D35F005078B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -93,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				AE535C6727B20F6400B307A2 /* Werdd */,
+				F3B6EBA42A26D35F005078B1 /* WerddTests */,
 				AE535C6627B20F6400B307A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				AE535C6527B20F6400B307A2 /* Werdd.app */,
+				F3B6EBA32A26D35F005078B1 /* WerddTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +287,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F3B6EBA42A26D35F005078B1 /* WerddTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3B6EBA52A26D35F005078B1 /* WerddTests.swift */,
+				F3B6EBAC2A26D662005078B1 /* HomeViewModelTests.swift */,
+				F3B6EBAE2A26DB45005078B1 /* MockNetworkManager.swift */,
+			);
+			path = WerddTests;
+			sourceTree = "<group>";
+		};
 		F3BEE0A92815F12A00CACBC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +329,24 @@
 			productReference = AE535C6527B20F6400B307A2 /* Werdd.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F3B6EBA22A26D35F005078B1 /* WerddTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3B6EBAB2A26D35F005078B1 /* Build configuration list for PBXNativeTarget "WerddTests" */;
+			buildPhases = (
+				F3B6EB9F2A26D35F005078B1 /* Sources */,
+				F3B6EBA02A26D35F005078B1 /* Frameworks */,
+				F3B6EBA12A26D35F005078B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3B6EBA82A26D35F005078B1 /* PBXTargetDependency */,
+			);
+			name = WerddTests;
+			productName = WerddTests;
+			productReference = F3B6EBA32A26D35F005078B1 /* WerddTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -300,11 +354,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					AE535C6427B20F6400B307A2 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					F3B6EBA22A26D35F005078B1 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = AE535C6427B20F6400B307A2;
 					};
 				};
 			};
@@ -322,6 +380,7 @@
 			projectRoot = "";
 			targets = (
 				AE535C6427B20F6400B307A2 /* Werdd */,
+				F3B6EBA22A26D35F005078B1 /* WerddTests */,
 			);
 		};
 /* End PBXProject section */
@@ -340,6 +399,13 @@
 				AE5ABCE827C4781C0074E50C /* Rubik-Light.ttf in Resources */,
 				AE535C7527B20F6600B307A2 /* LaunchScreen.storyboard in Resources */,
 				AE535C7227B20F6600B307A2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3B6EBA12A26D35F005078B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +442,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3B6EB9F2A26D35F005078B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B6EBAF2A26DB45005078B1 /* MockNetworkManager.swift in Sources */,
+				F3B6EBA62A26D35F005078B1 /* WerddTests.swift in Sources */,
+				F3B6EBAD2A26D662005078B1 /* HomeViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3B6EBA82A26D35F005078B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE535C6427B20F6400B307A2 /* Werdd */;
+			targetProxy = F3B6EBA72A26D35F005078B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AE535C7327B20F6600B307A2 /* LaunchScreen.storyboard */ = {
@@ -560,6 +644,46 @@
 			};
 			name = Release;
 		};
+		F3B6EBA92A26D35F005078B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C62Y8SVBJ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanko.WerddTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Werdd.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Werdd";
+			};
+			name = Debug;
+		};
+		F3B6EBAA2A26D35F005078B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C62Y8SVBJ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanko.WerddTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Werdd.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Werdd";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -577,6 +701,15 @@
 			buildConfigurations = (
 				AE535C7A27B20F6600B307A2 /* Debug */,
 				AE535C7B27B20F6600B307A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3B6EBAB2A26D35F005078B1 /* Build configuration list for PBXNativeTarget "WerddTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3B6EBA92A26D35F005078B1 /* Debug */,
+				F3B6EBAA2A26D35F005078B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -21,7 +21,12 @@ enum APIError: LocalizedError {
     }
 }
 
-final class NetworkManager {
+protocol NetworkManaging {
+    func fetchRandomWord() async throws -> Word
+    func fetchWordWithDetails(_ word: String) async throws -> Word
+}
+
+final class NetworkManager: NetworkManaging {
     
     /// Makes a network request for a randomly generated word and its details
     func fetchRandomWord() async throws -> Word {

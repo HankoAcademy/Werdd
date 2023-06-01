@@ -10,7 +10,7 @@ import UIKit
 
 final class HomeViewModel {
     
-    private let networkManager: NetworkManager
+    private let networkManager: NetworkManaging
     private var randomWord: Word?
     private var word: Word?
     
@@ -38,7 +38,7 @@ final class HomeViewModel {
         randomWord?.results?.first?.definition
     }
     
-    init(networkManager: NetworkManager = NetworkManager()) {
+    init(networkManager: NetworkManaging = NetworkManager()) {
         self.networkManager = networkManager
     }
 
